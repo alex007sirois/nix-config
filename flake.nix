@@ -12,7 +12,7 @@
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
-      "asirois@doo-laptop-asirois" = home-manager.lib.homeManagerConfiguration {
+      "alex@laptop-doo-asirois" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
         modules = [
