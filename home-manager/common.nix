@@ -1,4 +1,16 @@
 { ... }: {
+  imports = [
+    ./modules/core.nix
+    ./modules/editors.nix
+    ./modules/exa.nix
+    ./modules/fzf.nix
+    ./modules/git.nix
+    ./modules/nix.nix
+    ./modules/python.nix
+    ./modules/shell.nix
+    ./modules/ssh.nix
+    ./modules/tools.nix
+  ];
 
   nixpkgs = {
     config = {
