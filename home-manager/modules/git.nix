@@ -6,7 +6,9 @@
       delta
       git
       git-lfs
+      lazygit
     ];
+
   programs.git = {
     enable = true;
     lfs = {
@@ -26,4 +28,5 @@
       diff.colorMoved = "default";
     };
   };
+  programs.lazygit.enable = true;
 }
