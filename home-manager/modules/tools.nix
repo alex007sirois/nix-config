@@ -4,6 +4,7 @@
   home.packages = with pkgs;
     [
       bat
+      coreutils-full
       curl
       choose
       delta

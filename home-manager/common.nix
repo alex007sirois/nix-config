@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./modules/core.nix
     ./modules/editors.nix
     ./modules/exa.nix
     ./modules/fzf.nix
