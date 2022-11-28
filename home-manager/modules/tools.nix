@@ -3,6 +3,7 @@
 }: {
   home.packages = with pkgs;
     [
+      aria
       bat
       coreutils-full
       curl
