@@ -30,12 +30,8 @@
   };
 
   programs.nushell = {
-    # FIXME: https://github.com/starship/starship/issues/4507
+    # FIXME: https://github.com/alex007sirois/nix-config/issues/2
     enable = false;
-
-    # starship init nu | str replace --string "size -c" "size" | save ~/.cache/starship/init.nu
-    # "source ~/.cache/starship/init.nu" | save --raw --append ~/.config/nushell/config.nu
-    # "let-env config = {show_banner: false}" | save --raw --append ~/.config/nushell/config.nu
   };
 
   programs.starship = {
