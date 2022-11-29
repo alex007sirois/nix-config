@@ -21,11 +21,23 @@
         navigate = false;
         line-numbers = true;
         side-by-side = true;
+        hyperlinks = true;
       };
     };
     extraConfig = {
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
+      core = {
+        ignorecase = false;
+        autocrlf = "input";
+      };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+      };
+      log.date = "iso";
+      pull.rebase = true;
+      push.autoSetupRemote = true;
     };
   };
   programs.lazygit.enable = true;
