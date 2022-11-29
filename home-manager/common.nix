@@ -1,9 +1,9 @@
 { ... }: {
   imports = [
     ./modules/editors.nix
-    ./modules/exa.nix
-    ./modules/fzf.nix
+    ./modules/fuzzy_find.nix
     ./modules/git.nix
+    ./modules/lister.nix
     ./modules/nix.nix
     ./modules/python.nix
     ./modules/shell.nix
