@@ -20,6 +20,15 @@
           ./home-manager/doo-laptop.nix
         ];
       };
+
+      "alex@DESKTOP-9FIKJ0V" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home-manager/common.nix
+          ./home-manager/home-desktop.nix
+        ];
+      };
     };
   };
 }
