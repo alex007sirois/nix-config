@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./modules/terminal.nix
     ./modules/vscode.nix
   ];
 
