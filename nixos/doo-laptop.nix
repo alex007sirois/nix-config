@@ -13,16 +13,10 @@
       ./modules/nvidia.nix
       ./modules/printer.nix
       ./hardware/doo-laptop.nix
+      ./hardware/user.nix
     ];
 
   networking.hostName = "laptop-doo-asirois-nix";
-
-  users.users.alex = {
-    isNormalUser = true;
-    description = "Alex Sirois";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    shell = pkgs.zsh;
-  };
 
   nixpkgs.config.allowUnfree = true;
 
