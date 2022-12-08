@@ -1,4 +1,7 @@
 { ... }: {
+  imports = [
+    ./modules/vscode.nix
+  ];
 
   home = {
     username = "alex";
