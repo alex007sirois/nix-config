@@ -93,10 +93,6 @@
     isNormalUser = true;
     description = "Alex Sirois";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
   };
 
   # Allow unfree packages

@@ -2,6 +2,7 @@
   imports = [
     ./modules/terminal.nix
     ./modules/vscode.nix
+    ./modules/web-browser.nix
   ];
 
   home = {
