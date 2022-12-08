@@ -11,7 +11,25 @@
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        # > Our main nixos configuration file <
+        modules = [ ./nixos/configuration.nix ];
+      };
+    };
+
     homeConfigurations = {
+      "alex@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home-manager/common.nix
+          ./home-manager/doo-laptop.nix
+        ];
+      };
+
       "alex@laptop-doo-asirois" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
