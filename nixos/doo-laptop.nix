@@ -5,6 +5,7 @@
     [
       ./modules/audio.nix
       ./modules/bootloader.nix
+      ./modules/container.nix
       ./modules/desktop-environment.nix
       ./modules/flake-commands.nix
       ./modules/localisation.nix
@@ -19,7 +20,7 @@
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Sirois";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
   };
 
