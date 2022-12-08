@@ -4,9 +4,7 @@
   home.packages = with pkgs;
     [
       bashInteractive
-      zsh
       nushell
-      starship
     ];
 
   programs.zsh = {

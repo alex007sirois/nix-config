@@ -5,7 +5,6 @@
     [
       bat
       fd
-      fzf
     ];
 
   programs.fzf = {

@@ -3,13 +3,9 @@
 }: {
   home.packages = with pkgs;
     [
-      delta
-      git
       git-ignore
-      git-lfs
       git-quick-stats
       git-standup
-      lazygit
     ];
 
   programs.git = {
