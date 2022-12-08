@@ -93,6 +93,7 @@
     isNormalUser = true;
     description = "Alex Sirois";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
