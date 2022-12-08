@@ -2,7 +2,7 @@
   imports = [
     ./modules/editors.nix
     ./modules/font.nix
-    ./modules/fuzzy_find.nix
+    ./modules/fuzzy-find.nix
     ./modules/git.nix
     ./modules/lister.nix
     ./modules/nix.nix
