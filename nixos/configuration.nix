@@ -96,6 +96,11 @@
     shell = pkgs.zsh;
   };
 
+  # Nvidia
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
