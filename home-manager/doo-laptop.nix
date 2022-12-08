@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./modules/chat.nix
     ./modules/terminal.nix
     ./modules/vscode.nix
     ./modules/web-browser.nix
