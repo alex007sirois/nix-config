@@ -13,9 +13,8 @@
 
     nixosConfigurations = {
       "laptop-doo-asirois-nix" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        specialArgs = { inherit inputs; };
+        modules = [ ./nixos/doo-laptop.nix ];
       };
     };
 
