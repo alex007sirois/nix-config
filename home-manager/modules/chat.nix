@@ -5,6 +5,6 @@
     [
       discord
       slack
-      teams
+      teams-for-linux
     ];
 }
