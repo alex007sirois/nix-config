@@ -12,8 +12,8 @@
       ./modules/networking.nix
       ./modules/nvidia.nix
       ./modules/printer.nix
+      ./modules/user.nix
       ./hardware/doo-laptop.nix
-      ./hardware/user.nix
     ];
 
   networking.hostName = "laptop-doo-asirois-nix";

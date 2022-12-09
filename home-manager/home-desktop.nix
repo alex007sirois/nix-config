@@ -1,4 +1,8 @@
 { ... }: {
+  imports = [
+    ./common.nix
+  ];
+
   targets.genericLinux.enable = true;
 
   home = {

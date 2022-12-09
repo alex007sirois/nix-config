@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./common.nix
     ./modules/chat.nix
     ./modules/icon.nix
     ./modules/music.nix
