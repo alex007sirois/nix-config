@@ -11,7 +11,6 @@
       doggo
       dua
       duf
-      fx
       glances
       hyperfine
       iputils
