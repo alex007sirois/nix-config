@@ -1,16 +1,25 @@
 { ... }: {
   imports = [
+    ./modules/archive.nix
+    ./modules/core.nix
+    ./modules/disk.nix
+    ./modules/docker.nix
+    ./modules/download.nix
     ./modules/editors.nix
+    ./modules/file-sync.nix
     ./modules/font.nix
     ./modules/fuzzy-find.nix
     ./modules/git.nix
+    ./modules/http.nix
+    ./modules/ip.nix
     ./modules/lister.nix
+    ./modules/monitoring.nix
+    ./modules/multiplexer.nix
     ./modules/nix.nix
     ./modules/pager.nix
     ./modules/python.nix
     ./modules/shell.nix
     ./modules/ssh.nix
-    ./modules/tools.nix
   ];
 
   nixpkgs = {

@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./common.nix
+    ./common-cli.nix
   ];
 
   targets.genericLinux.enable = true;
