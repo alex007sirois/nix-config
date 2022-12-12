@@ -4,7 +4,12 @@
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Sirois";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "audio"
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 }
