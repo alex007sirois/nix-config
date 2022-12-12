@@ -7,7 +7,7 @@
       bat
       chafa
       fd
-      ffmpeg
+      ffmpeg_5-full
       file
       hexyl
       lnav
