@@ -1,20 +1,17 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      exa
-      bat
-      chafa
-      fd
-      ffmpeg_5-full
-      file
-      hexyl
-      lnav
-      openssl
-      pandoc
-      pdfminer
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    exa
+    bat
+    chafa
+    fd
+    ffmpeg_5-full
+    file
+    hexyl
+    lnav
+    openssl
+    pandoc
+    pdfminer
+  ];
 
   programs.fzf = {
     enable = true;

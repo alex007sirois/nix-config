@@ -1,20 +1,17 @@
-{ pkgs
-, ...
-}: {
-  imports =
-    [
-      ./modules/audio.nix
-      ./modules/bootloader.nix
-      ./modules/container.nix
-      ./modules/desktop-environment.nix
-      ./modules/flake-commands.nix
-      ./modules/localisation.nix
-      ./modules/networking.nix
-      ./modules/nvidia.nix
-      ./modules/printer.nix
-      ./modules/user.nix
-      ./hardware/doo-laptop.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    ./modules/audio.nix
+    ./modules/bootloader.nix
+    ./modules/container.nix
+    ./modules/desktop-environment.nix
+    ./modules/flake-commands.nix
+    ./modules/localisation.nix
+    ./modules/networking.nix
+    ./modules/nvidia.nix
+    ./modules/printer.nix
+    ./modules/user.nix
+    ./hardware/doo-laptop.nix
+  ];
 
   networking.hostName = "laptop-doo-asirois-nix";
 

@@ -1,9 +1,6 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      dua
-      duf
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    dua
+    duf
+  ];
 }

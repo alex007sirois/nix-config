@@ -1,11 +1,8 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      python3
-      python3Packages.pipx
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    python3
+    python3Packages.pipx
+  ];
 
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = ["$HOME/.local/bin"];
 }

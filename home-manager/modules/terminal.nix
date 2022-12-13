@@ -1,8 +1,5 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      pantheon.elementary-terminal
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    pantheon.elementary-terminal
+  ];
 }

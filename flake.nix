@@ -8,10 +8,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       "laptop-doo-asirois-nix" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./nixos/doo-laptop.nix
           home-manager.nixosModules.home-manager
@@ -27,14 +31,14 @@
     homeConfigurations = {
       "alex@laptop-doo-asirois" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home-manager/doo-laptop.nix ];
+        extraSpecialArgs = {inherit inputs;};
+        modules = [./home-manager/doo-laptop.nix];
       };
 
       "alex@DESKTOP-9FIKJ0V" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home-manager/home-desktop.nix ];
+        extraSpecialArgs = {inherit inputs;};
+        modules = [./home-manager/home-desktop.nix];
       };
     };
   };

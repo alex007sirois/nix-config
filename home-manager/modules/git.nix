@@ -1,12 +1,9 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      git-ignore
-      git-quick-stats
-      git-standup
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    git-ignore
+    git-quick-stats
+    git-standup
+  ];
 
   programs.git = {
     enable = true;

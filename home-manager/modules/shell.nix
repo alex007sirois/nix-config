@@ -1,11 +1,8 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      bashInteractive
-      nushell
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    bashInteractive
+    nushell
+  ];
 
   programs.zsh = {
     enable = true;

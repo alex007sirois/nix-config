@@ -1,8 +1,5 @@
-{ pkgs
-, ...
-}: {
-  home.packages = with pkgs;
-    [
-      dive
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    dive
+  ];
 }
