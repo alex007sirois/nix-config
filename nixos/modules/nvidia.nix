@@ -14,7 +14,11 @@
 in {
   environment.systemPackages = [nvidia-offload];
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.displayManager.sessionCommands = ''
+    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+  '';
+
+  services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     nvidiaPersistenced = true;
