@@ -21,11 +21,18 @@
     delta = {
       enable = true;
       options = {
-        light = false;
-        navigate = false;
-        line-numbers = true;
-        side-by-side = true;
-        hyperlinks = true;
+        default = {
+          light = false;
+          navigate = false;
+          line-numbers = true;
+          side-by-side = true;
+          hyperlinks = true;
+        };
+        lazygit = {
+          hyperlinks = false;
+          paging = "never";
+        };
+        features = "default";
       };
     };
     extraConfig = {
@@ -44,5 +51,18 @@
       push.autoSetupRemote = true;
     };
   };
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        showIcons = true;
+        timeFormat = "2006-01-02 15:04:05";
+      };
+      git = {
+        branchLogCmd = "git logs --graph";
+        paging.pager = "delta --features 'default lazygit'";
+        parseEmoji = true;
+      };
+    };
+  };
 }
