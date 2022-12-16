@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     bashInteractive
-    nushell
   ];
 
   programs.zsh = {
@@ -27,8 +26,8 @@
   };
 
   programs.nushell = {
-    # FIXME: https://github.com/alex007sirois/nix-config/issues/2
-    enable = false;
+    enable = true;
+    configFile.text = "let-env config = {show_banner: false}";
   };
 
   programs.starship = {
