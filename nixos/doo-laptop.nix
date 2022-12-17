@@ -4,6 +4,7 @@
     ./modules/bootloader.nix
     ./modules/container.nix
     ./modules/desktop-environment.nix
+    ./modules/file-system.nix
     ./modules/flake-commands.nix
     ./modules/localisation.nix
     ./modules/networking.nix
