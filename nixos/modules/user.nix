@@ -4,6 +4,7 @@
     description = "Alex Sirois";
     extraGroups = [
       "audio"
+      "dialout"
       "docker"
       "networkmanager"
       "wheel"
