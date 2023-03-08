@@ -41,5 +41,10 @@
         modules = [./home-manager/home-desktop.nix];
       };
     };
+
+    templates.default = {
+      path = ./templates/flake;
+      description = "Basic flake direnv template.";
+    };
   };
 }
