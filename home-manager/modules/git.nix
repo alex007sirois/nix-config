@@ -9,11 +9,11 @@
     enable = true;
     aliases = {
       aliases = "config --get-regexp ^alias\.";
-      branches = "branch -a  --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:blue)(%(committerdate:short)) [%(authorname)]' --sort=-committerdate";
+      branches = "branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:blue)(%(committerdate:short)) [%(authorname)]' --sort=-committerdate";
       logs = "log --pretty=format:'%C(auto)%h%C(reset) %C(cyan)%ad%C(auto)%d%C(reset) %s %C(blue)[%cn]%C(reset)' --date=short-local";
       save = "!git add -A && git commit -m 'chore: savepoint'";
       uncommit = "reset --mixed HEAD~1";
-      wipe = "!git reset --hard && git clean -fdx";
+      nuke = "!git reset --hard && git clean -fdx";
     };
     lfs = {
       enable = true;
