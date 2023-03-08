@@ -2,7 +2,10 @@
   home.packages = with pkgs; [
     git-ignore
     git-quick-stats
+    git-secrets
     git-standup
+    gitlint
+    lefthook
   ];
 
   programs.git = {
