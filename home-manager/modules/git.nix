@@ -34,6 +34,7 @@
         lazygit = {
           hyperlinks = false;
           paging = "never";
+          side-by-side = false;
         };
         features = "default";
       };
