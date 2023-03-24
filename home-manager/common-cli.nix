@@ -2,6 +2,7 @@
   imports = [
     ./modules/archive.nix
     ./modules/core.nix
+    ./modules/clipboard.nix
     ./modules/direnv.nix
     ./modules/disk.nix
     ./modules/docker.nix
