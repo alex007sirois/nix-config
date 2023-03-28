@@ -3,4 +3,5 @@
     alejandra
     comma
   ];
+  programs.nix-index.enable = true;
 }
