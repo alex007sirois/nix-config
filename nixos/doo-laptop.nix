@@ -11,6 +11,7 @@
     ./modules/networking.nix
     ./modules/nvidia.nix
     ./modules/printer.nix
+    ./modules/touchpad.nix
     ./modules/user.nix
     ./hardware/doo-laptop.nix
   ];
