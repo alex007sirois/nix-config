@@ -1,6 +1,9 @@
 {...}: {
-  programs.micro.enable = true;
-  home.sessionVariables = {
-    EDITOR = "micro";
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "monokai";
+    };
   };
+  home.sessionVariables.EDITOR = "hx";
 }
