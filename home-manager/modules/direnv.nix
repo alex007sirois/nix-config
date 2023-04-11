@@ -5,7 +5,7 @@
   };
 
   programs.zsh.initExtra = "
-flakify() {
+nixify() {
   if [ ! -e flake.nix ]; then
     nix flake new -t github:alex007sirois/nix-config .
   elif [ ! -e .envrc ]; then
