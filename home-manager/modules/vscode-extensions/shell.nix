@@ -1,0 +1,6 @@
+{pkgs, ...}:
+with pkgs.vscode-extensions; [
+  timonwong.shellcheck
+  foxundermoon.shell-format
+  mads-hartmann.bash-ide-vscode
+]
