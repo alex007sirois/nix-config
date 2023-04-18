@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     exa
     bat
@@ -21,7 +25,13 @@
   };
 
   home.shellAliases = {
-    fzf = "fzf --preview 'pistol {}'";
+    fzf = lib.strings.concatStringsSep " " [
+      "fzf"
+      "--preview 'pistol {}'"
+      "--bind 'ctrl-y:execute-silent(echo -n {} | xclip -sel clip)'"
+      "--bind 'ctrl-e:execute($EDITOR {})'"
+      "--bind 'ctrl-o:execute-silent(xdg-open {})'"
+    ];
   };
 
   programs.pistol = {
