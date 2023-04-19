@@ -2,7 +2,13 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  pistol-preview = "--preview 'pistol {}'";
+  open-bind = "--bind 'ctrl-o:execute-silent(xdg-open {})'";
+  edit-bind = "--bind 'ctrl-e:execute($EDITOR {})'";
+  yank-bind = "--bind 'ctrl-y:execute-silent(echo -n {} | xclip -sel clip)'";
+  history-yank-bind = "--bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -sel clip)'";
+in {
   home.packages = with pkgs; [
     exa
     bat
@@ -21,16 +27,30 @@
     enable = true;
     defaultCommand = "fd --follow";
     fileWidgetCommand = "fd --follow --type file";
+    fileWidgetOptions = [
+      pistol-preview
+      yank-bind
+      edit-bind
+      open-bind
+    ];
     changeDirWidgetCommand = "fd --follow --type directory";
+    changeDirWidgetOptions = [
+      pistol-preview
+      yank-bind
+      open-bind
+    ];
+    historyWidgetOptions = [
+      history-yank-bind
+    ];
   };
 
   home.shellAliases = {
     fzf = lib.strings.concatStringsSep " " [
       "fzf"
-      "--preview 'pistol {}'"
-      "--bind 'ctrl-y:execute-silent(echo -n {} | xclip -sel clip)'"
-      "--bind 'ctrl-e:execute($EDITOR {})'"
-      "--bind 'ctrl-o:execute-silent(xdg-open {})'"
+      pistol-preview
+      yank-bind
+      edit-bind
+      open-bind
     ];
   };
 
