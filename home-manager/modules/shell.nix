@@ -15,10 +15,10 @@
       USE_POWERLINE = "true";
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=244";
     };
-    initExtra = "
-    bindkey '^H' backward-kill-word
-    bindkey '5~' kill-word
-    ";
+    initExtra = ''
+      bindkey '^H' backward-kill-word
+      bindkey '5~' kill-word
+    '';
   };
 
   programs.bash = {
