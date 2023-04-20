@@ -3,7 +3,6 @@
     python3
     pyright
     black
-    pipx
   ];
 
   programs.helix.languages = [
@@ -21,6 +20,4 @@
       };
     }
   ];
-
-  home.sessionPath = ["$HOME/.local/bin"];
 }
