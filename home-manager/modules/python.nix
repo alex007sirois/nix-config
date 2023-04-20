@@ -3,6 +3,7 @@
     python3
     pyright
     black
+    ruff
   ];
 
   programs.helix.languages = [
