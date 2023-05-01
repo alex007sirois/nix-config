@@ -47,8 +47,11 @@ in {
   home.shellAliases = {
     fzf = lib.strings.concatStringsSep " " [
       "fzf"
-      pistol-preview
       yank-bind
+    ];
+    fzf-file = lib.strings.concatStringsSep " " [
+      "fzf"
+      pistol-preview
       edit-bind
       open-bind
     ];
