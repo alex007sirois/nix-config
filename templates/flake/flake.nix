@@ -11,7 +11,10 @@
     ];
   in {
     devShells = forAllSystems (system: let
-      pkgs = import nixpkgs {inherit system;};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = false;
+      };
     in {
       default = pkgs.mkShell {
         packages = with pkgs; [];
