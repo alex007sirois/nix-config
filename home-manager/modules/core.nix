@@ -4,6 +4,7 @@
     choose
     hyperfine
     ripgrep
+    sad
     viddy
   ];
 }
