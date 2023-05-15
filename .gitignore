@@ -1,2 +1,9 @@
 displaylink-561.zip
 result
+
+
+### Created by https://www.gitignore.io
+### direnv ###
+.direnv
+.envrc
+
