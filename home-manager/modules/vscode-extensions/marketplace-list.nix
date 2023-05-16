@@ -8,8 +8,8 @@
   {
     name = "ruff";
     publisher = "charliermarsh";
-    version = "2023.13.10931546";
-    sha256 = "1vmbbj2cbxqr6yv6c22gcvlwnjhfrq6mkiqlvqvx3aq3wfmw3hy1";
+    version = "2023.17.11351528";
+    sha256 = "1pqp0inbhk6ygvng96appzqnjdk1shaw6dkcixaigpl8034n5kv4";
   }
   {
     name = "code-coverage";
@@ -20,8 +20,8 @@
   {
     name = "black-formatter";
     publisher = "ms-python";
-    version = "2023.3.10961008";
-    sha256 = "0nbysvcnxgphr397dyxqvw87ajlbqpb4fqmjzbgcr7idn7dvjnh1";
+    version = "2023.3.11241004";
+    sha256 = "1n4bgqks1xmqm7b65lcsb1k6pm6vdaaskg0j21fzysb7iriv48fm";
   }
   {
     name = "change-case";
