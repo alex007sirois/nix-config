@@ -6,7 +6,7 @@
     ruff
   ];
 
-  programs.helix.languages = [
+  programs.helix.languages.language = [
     {
       name = "python";
       roots = ["pyproject.toml"];
