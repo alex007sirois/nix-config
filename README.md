@@ -1,18 +1,6 @@
 # nix-config
 
-## Botstrap
+nix config using using home manager and flakes.
 
-1. [Install nix](https://nixos.org/download.html)
-2. Append experimental feature to nix config: `echo 'experimental-features = nix-command flakes' >> /home/alex/.config/nix/nix.conf`
-3. Install home-manager: `nix shell 'nixpkgs#home-manager'`
-4. Switch home-manager to latest config: `home-manager switch --flake github:alex007sirois/nix-config`
-5. Update login shell:
-
-    ```bash
-    shell=$(which zsh)
-    sudo bash -c "echo $shell >> /etc/shells"
-    chsh -s $shell
-    ```
-
-7. Garbage-collect nix store: `nix store gc`
-8. Optimise nix store: `nix store optimise`
+Based on Misterio77's [nix-starter-config](https://github.com/Misterio77/nix-starter-configs).
+Please read that project [README](https://github.com/Misterio77/nix-starter-configs/blob/main/README.md) to learn how to get setup and avoid common pitfalls.
