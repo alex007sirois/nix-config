@@ -59,7 +59,7 @@
     enable = true;
     settings = {
       gui = {
-        showIcons = true;
+        showIcons = false; # FIXME https://github.com/jesseduffield/lazygit/issues/2603
         timeFormat = "2006-01-02 15:04:05";
       };
       git = {
