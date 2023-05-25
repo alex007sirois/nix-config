@@ -16,7 +16,6 @@
     ./modules/ip.nix
     ./modules/lister.nix
     ./modules/monitoring.nix
-    ./modules/multiplexer.nix
     ./modules/nix.nix
     ./modules/pager.nix
     ./modules/python.nix
