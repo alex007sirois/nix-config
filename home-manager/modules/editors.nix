@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "monokai";
+      theme = "dark_plus";
     };
     languages.language = [
       {
