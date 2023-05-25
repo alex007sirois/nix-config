@@ -1,24 +1,15 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  python-lsp-packages = ps:
+    with ps; [
+      pylsp-mypy
+      pylsp-rope
+      python-lsp-server
+      python-lsp-ruff
+    ];
+in {
   home.packages = with pkgs; [
-    python3
-    pyright
+    (python311.withPackages python-lsp-packages)
     black
     ruff
-  ];
-
-  programs.helix.languages.language = [
-    {
-      name = "python";
-      roots = ["pyproject.toml"];
-      language-server = {
-        command = "pyright-langserver";
-        args = ["--stdio"];
-      };
-      config = {};
-      formatter = {
-        command = "black";
-        args = ["--quiet" "-"];
-      };
-    }
   ];
 }
