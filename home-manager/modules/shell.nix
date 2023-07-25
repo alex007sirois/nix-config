@@ -6,7 +6,7 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     history.expireDuplicatesFirst = true;
     oh-my-zsh = {
       enable = true;
