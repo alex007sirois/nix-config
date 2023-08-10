@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   services.xserver = {
     enable = true;
+    excludePackages = with pkgs; [xterm];
     displayManager.gdm = {
       enable = true;
       wayland = false;
@@ -11,5 +12,6 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome.gnome-terminal
     gnome.epiphany
+    gnome-console
   ];
 }
