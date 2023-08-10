@@ -25,5 +25,5 @@
     hunspellDicts.fr-moderne
   ];
 
-  fonts.fonts = [pkgs.noto-fonts-emoji];
+  fonts.packages = [pkgs.noto-fonts-emoji];
 }
