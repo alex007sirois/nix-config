@@ -1,9 +1,9 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    exa
-  ];
-
-  home.shellAliases = {
-    exa = "exa --classify --group-directories-first --icons --time-style=long-iso";
+{...}: {
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+    git = true;
+    icons = true;
+    extraOptions = ["--classify" "--group-directories-first" "--time-style=long-iso"];
   };
 }

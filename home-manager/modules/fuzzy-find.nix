@@ -10,7 +10,7 @@
   history-yank-bind = "--bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -sel clip)'";
 in {
   home.packages = with pkgs; [
-    exa
+    eza
     bat
     chafa
     fd
@@ -62,7 +62,7 @@ in {
     associations = [
       {
         mime = "inode/directory";
-        command = "exa --classify --group-directories-first --icons --time-style=long-iso %pistol-filename%";
+        command = "eza --classify --group-directories-first --icons --time-style=long-iso --git %pistol-filename%";
       }
       {
         mime = "application/x-x509-ca-cert";
