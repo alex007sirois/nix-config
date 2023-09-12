@@ -3,8 +3,9 @@
     coreutils-full
     choose
     hyperfine
-    ripgrep
     sad
     viddy
   ];
+
+  programs.ripgrep.enable = true;
 }
