@@ -20,23 +20,9 @@
     lfs = {
       enable = true;
     };
-    delta = {
+    difftastic = {
       enable = true;
-      options = {
-        default = {
-          light = false;
-          navigate = false;
-          line-numbers = true;
-          side-by-side = true;
-          hyperlinks = true;
-        };
-        lazygit = {
-          hyperlinks = false;
-          paging = "never";
-          side-by-side = false;
-        };
-        features = "default";
-      };
+      background = "dark";
     };
     extraConfig = {
       core = {
@@ -81,7 +67,7 @@
       };
       git = {
         branchLogCmd = "git logs --graph";
-        paging.pager = "delta --features 'default lazygit'";
+        paging.externalDiffCommand = "difft --color=always";
         parseEmoji = true;
       };
     };
