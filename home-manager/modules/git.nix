@@ -40,19 +40,36 @@
       };
     };
     extraConfig = {
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
       core = {
-        ignorecase = false;
         autocrlf = "input";
+        ignorecase = false;
+      };
+      diff = {
+        colorMoved = "default";
+        renames = "copy";
       };
       fetch = {
         prune = true;
         pruneTags = true;
       };
-      log.date = "iso";
-      pull.rebase = true;
-      push.autoSetupRemote = true;
+      log = {
+        date = "iso";
+      };
+      merge = {
+        conflictstyle = "zdiff3";
+        directoryRenames = true;
+      };
+      rebase = {
+        updateRefs = true;
+        autoStash = true;
+      };
+      pull = {
+        rebase = true;
+      };
+      push = {
+        autoSetupRemote = true;
+        followTags = true;
+      };
     };
   };
   programs.lazygit = {
