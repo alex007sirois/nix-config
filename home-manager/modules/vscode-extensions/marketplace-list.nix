@@ -8,20 +8,20 @@
   {
     name = "ruff";
     publisher = "charliermarsh";
-    version = "2023.17.11351528";
-    sha256 = "1pqp0inbhk6ygvng96appzqnjdk1shaw6dkcixaigpl8034n5kv4";
+    version = "2023.39.12651833";
+    sha256 = "1q3pcrmkfbx1l61r6vzyb0cwikqq3q7dv8vbimvzk39c1cn39ji1";
   }
   {
     name = "code-coverage";
     publisher = "markis";
-    version = "1.8.6";
-    sha256 = "0kv8nhiwq6z74shn59xyp2c22jd3ylqf9zg6b0ph95fyj0dd4j72";
+    version = "1.11.0";
+    sha256 = "12lslvp23i83l7idxf6danbzzrrm2yxlq8fq423mqqbglkp3f8v2";
   }
   {
     name = "black-formatter";
     publisher = "ms-python";
-    version = "2023.3.11241004";
-    sha256 = "1n4bgqks1xmqm7b65lcsb1k6pm6vdaaskg0j21fzysb7iriv48fm";
+    version = "2023.5.12711011";
+    sha256 = "1asr7c928x9gbnq9h3bgxqi29q2lgxh66j95xdr5idbp16i1d379";
   }
   {
     name = "change-case";
