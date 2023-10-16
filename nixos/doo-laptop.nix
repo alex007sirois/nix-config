@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./modules/audio.nix
     ./modules/bootloader.nix
@@ -14,6 +14,7 @@
     ./modules/printer.nix
     ./modules/touchpad.nix
     ./modules/user.nix
+    ./modules/virtualization.nix
     ./hardware/doo-laptop.nix
   ];
 
