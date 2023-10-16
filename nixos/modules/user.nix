@@ -3,7 +3,6 @@
     isNormalUser = true;
     description = "Alex Sirois";
     extraGroups = [
-      "audio"
       "dialout"
       "docker"
       "networkmanager"
