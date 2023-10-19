@@ -4,7 +4,6 @@
     settings = {
       theme = "dark_plus";
       editor = {
-        completion-replace = true;
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
