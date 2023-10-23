@@ -37,6 +37,7 @@
       add_newline = false;
       directory.truncation_length = 8;
       git_branch.truncation_length = 24;
+      nix_shell.format = "via [$symbol$state]($style) ";
       shell.disabled = false;
       status = {
         disabled = false;
