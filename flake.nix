@@ -28,11 +28,6 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = false;
-        overlays = [
-          (final: prev: {
-            electron = prev.electron_24;
-          })
-        ];
       };
     in {
       default = pkgs.mkShell {
