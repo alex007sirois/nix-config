@@ -8,6 +8,7 @@
     ../modules/direnv.nix
     ../modules/file-system.nix
     ../modules/flake-commands.nix
+    ../modules/gaming.nix
     ../modules/garbage-collect.nix
     ../modules/localisation.nix
     ../modules/networking.nix
