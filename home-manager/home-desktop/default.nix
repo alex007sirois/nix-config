@@ -26,7 +26,6 @@
     ../modules/shell.nix
     ../modules/ssh.nix
     ../modules/terminal.nix
-    ../modules/theme.nix
     ../modules/unfree.nix
     ../modules/vscode.nix
     ../modules/web-browser.nix
