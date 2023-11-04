@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../modules/archive.nix
-    ../modules/chat.nix
+    ../modules/chat-personal.nix
     ../modules/clipboard.nix
     ../modules/core.nix
     ../modules/direnv.nix
@@ -44,4 +44,3 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "22.11";
 }
-  

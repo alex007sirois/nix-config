@@ -1,7 +1,8 @@
 {...}: {
   imports = [
     ../modules/archive.nix
-    ../modules/chat.nix
+    ../modules/chat-personal.nix
+    ../modules/chat-professional.nix
     ../modules/clipboard.nix
     ../modules/core.nix
     ../modules/direnv.nix
