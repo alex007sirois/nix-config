@@ -33,6 +33,8 @@
       default = pkgs.mkShell {
         packages = with pkgs; [
           just
+          gitlint
+          lefthook
         ];
       };
     });

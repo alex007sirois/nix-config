@@ -1,0 +1,5 @@
+[commit-msg.commands.lint]
+run = "gitlint"
+
+[pre-push.commands.build]
+run = "just build"
