@@ -41,7 +41,7 @@
       "laptop-doo-asirois-nix" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/doo-laptop.nix
+          ./nixos/doo-laptop
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -56,7 +56,7 @@
       "home-desktop-asirois-nix" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/home-desktop.nix
+          ./nixos/home-desktop
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

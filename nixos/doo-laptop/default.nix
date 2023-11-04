@@ -1,25 +1,25 @@
 {...}: {
   imports = [
-    ./modules/audio.nix
-    ./modules/bootloader.nix
-    ./modules/container.nix
-    ./modules/desktop-environment.nix
-    ./modules/direnv.nix
-    ./modules/file-system.nix
-    ./modules/flake-commands.nix
-    ./modules/garbage-collect.nix
-    ./modules/localisation.nix
-    ./modules/networking.nix
-    ./modules/nvidia.nix
-    ./modules/printer.nix
-    ./modules/touchpad.nix
-    ./modules/user.nix
-    ./modules/virtualization.nix
-    ./hardware/doo-laptop.nix
+    ./bootloader.nix
+    ./hardware.nix
+    ./nvidia.nix
+    ../modules/audio.nix
+    ../modules/bootloader.nix
+    ../modules/container.nix
+    ../modules/desktop-environment.nix
+    ../modules/direnv.nix
+    ../modules/file-system.nix
+    ../modules/flake-commands.nix
+    ../modules/garbage-collect.nix
+    ../modules/localisation.nix
+    ../modules/networking.nix
+    ../modules/printer.nix
+    ../modules/touchpad.nix
+    ../modules/user.nix
+    ../modules/virtualization.nix
   ];
 
   networking.hostName = "laptop-doo-asirois-nix";
-  boot.loader.efi.efiSysMountPoint = "/boot/efi"
 
   nixpkgs.config.allowUnfree = true;
 

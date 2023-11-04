@@ -1,20 +1,20 @@
 {...}: {
   imports = [
-    ./modules/audio.nix
-    ./modules/bootloader.nix
-    ./modules/container.nix
-    ./modules/desktop-environment.nix
-    ./modules/direnv.nix
-    ./modules/file-system.nix
-    ./modules/flake-commands.nix
-    ./modules/garbage-collect.nix
-    ./modules/localisation.nix
-    ./modules/networking.nix
-    ./modules/printer.nix
-    ./modules/touchpad.nix
-    ./modules/user.nix
-    ./modules/virtualization.nix
-    ./hardware/home-desktop.nix
+    ./bootloader.nix
+    ./hardware.nix
+    ../modules/audio.nix
+    ../modules/container.nix
+    ../modules/desktop-environment.nix
+    ../modules/direnv.nix
+    ../modules/file-system.nix
+    ../modules/flake-commands.nix
+    ../modules/garbage-collect.nix
+    ../modules/localisation.nix
+    ../modules/networking.nix
+    ../modules/printer.nix
+    ../modules/touchpad.nix
+    ../modules/user.nix
+    ../modules/virtualization.nix
   ];
 
   networking.hostName = "home-desktop-asirois-nix";
