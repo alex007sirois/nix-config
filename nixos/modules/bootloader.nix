@@ -4,7 +4,6 @@
     grub.configurationLimit = 20;
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
     };
   };
 }

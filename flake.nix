@@ -52,13 +52,17 @@
       };
     };
 
-    homeConfigurations = {
-      "alex@DESKTOP-9FIKJ0V" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
+    nixosConfigurations = {
+      "home-desktop-asirois-nix" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         modules = [
-          ./home-manager/home-desktop.nix
-          nix-index-database.hmModules.nix-index
+          ./nixos/home-desktop.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.alex = import ./home-manager/home-desktop.nix;
+          }
         ];
       };
     };

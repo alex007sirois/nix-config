@@ -10,16 +10,14 @@
     ./modules/garbage-collect.nix
     ./modules/localisation.nix
     ./modules/networking.nix
-    ./modules/nvidia.nix
     ./modules/printer.nix
     ./modules/touchpad.nix
     ./modules/user.nix
     ./modules/virtualization.nix
-    ./hardware/doo-laptop.nix
+    ./hardware/home-desktop.nix
   ];
 
-  networking.hostName = "laptop-doo-asirois-nix";
-  boot.loader.efi.efiSysMountPoint = "/boot/efi"
+  networking.hostName = "home-desktop-asirois-nix";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -29,5 +27,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }

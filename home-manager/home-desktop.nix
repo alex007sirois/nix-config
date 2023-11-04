@@ -1,9 +1,8 @@
 {...}: {
   imports = [
     ./common-cli.nix
+    ./common-gui.nix
   ];
-
-  targets.genericLinux.enable = true;
 
   home = {
     username = "alex";
