@@ -46,7 +46,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./home-manager/doo-laptop.nix;
+            home-manager.users.alex = import ./home-manager/doo-laptop;
           }
         ];
       };
@@ -61,7 +61,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./home-manager/home-desktop.nix;
+            home-manager.users.alex = import ./home-manager/home-desktop;
           }
         ];
       };
