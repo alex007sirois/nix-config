@@ -4,7 +4,6 @@
     ./hardware.nix
     ./nvidia.nix
     ../modules/audio.nix
-    ../modules/bootloader.nix
     ../modules/container.nix
     ../modules/desktop-environment.nix
     ../modules/direnv.nix
