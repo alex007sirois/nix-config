@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./bootloader.nix
+    ./fundamentum-hosts.nix
     ./hardware.nix
     ./nvidia.nix
     ../modules/audio.nix
