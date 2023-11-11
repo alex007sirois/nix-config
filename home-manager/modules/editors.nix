@@ -4,12 +4,30 @@
     settings = {
       theme = "dark_plus";
       editor = {
+        bufferline = "multiple";
+        color-modes = true;
+        cursorline = true;
+        line-number = "relative";
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides = {
+          render = true;
+        };
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
         };
       };
       keys = {
+        normal = {
+          X = ["extend_line_up" "extend_to_line_bounds"];
+        };
+        select = {
+          X = ["extend_line_up" "extend_to_line_bounds"];
+        };
         insert = {
           up = "no_op";
           down = "no_op";
@@ -22,15 +40,27 @@
         };
       };
     };
-    languages.language = [
-      {
-        name = "nix";
-        formatter = {
-          command = "alejandra";
-          args = ["--quiet" "-"];
+    languages = {
+      language-server = {
+        pylsp.config = {
+          pylsp.plugins.rope_autoimport.enabled = true;
         };
-      }
-    ];
+      };
+      language = [
+        {
+          name = "nix";
+          formatter = {
+            command = "alejandra";
+            args = ["--quiet" "-"];
+          };
+          auto-format = true;
+        }
+        {
+          name = "python";
+          auto-format = true;
+        }
+      ];
+    };
   };
   home.sessionVariables.EDITOR = "hx";
 }
