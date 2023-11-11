@@ -1,4 +1,14 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    nodePackages.bash-language-server
+    buf-language-server
+    dockerfile-language-server-nodejs
+    gopls
+    vscode-langservers-extracted
+    taplo
+    yaml-language-server
+  ];
+
   programs.helix = {
     enable = true;
     settings = {
