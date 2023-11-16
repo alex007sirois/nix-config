@@ -9,6 +9,9 @@ build:
 switch:
 	sudo nixos-rebuild switch --flake .
 
+test:
+	sudo nixos-rebuild test --flake .
+
 diff: build
 	nix store diff-closures /nix/var/nix/profiles/system result/
 
