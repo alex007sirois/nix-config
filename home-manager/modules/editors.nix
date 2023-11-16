@@ -18,6 +18,8 @@ in {
     vscode-langservers-extracted
     taplo
     yaml-language-server
+    alejandra
+    nil
   ];
 
   programs.helix = {
