@@ -27,7 +27,6 @@
 
   programs.nushell = {
     enable = true;
-    configFile.text = "let-env config = {show_banner: false}";
   };
 
   programs.starship = {
