@@ -126,4 +126,9 @@ in {
       }
     ];
   };
+
+  home.shellAliases = {
+    bat = "bat -p";
+    batf = "bat --style=full";
+  };
 }

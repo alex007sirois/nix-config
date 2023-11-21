@@ -10,6 +10,9 @@
     history.expireDuplicatesFirst = true;
     oh-my-zsh = {
       enable = true;
+      extraConfig = ''
+        zstyle ':omz:*' aliases no
+      '';
     };
     sessionVariables = {
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=244";
