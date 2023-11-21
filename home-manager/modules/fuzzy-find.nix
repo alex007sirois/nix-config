@@ -70,7 +70,7 @@ in {
       }
       {
         fpath = ".*\.pem$";
-        command = "sh: openssl x509 -text -noout -passin pass: -in %pistol-filename% || bat %pistol-filename%";
+        command = "sh: openssl x509 -text -noout -passin pass: -in %pistol-filename% || bat --paging=never %pistol-filename%";
       }
       {
         mime = "application/pdf";
