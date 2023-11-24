@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ../modules/archive.nix
+    ../modules/audio.nix
     ../modules/chat-personal.nix
     ../modules/chat-professional.nix
     ../modules/clipboard.nix
@@ -20,7 +21,6 @@
     ../modules/ip.nix
     ../modules/lister.nix
     ../modules/monitoring.nix
-    ../modules/music.nix
     ../modules/nix.nix
     ../modules/pager.nix
     ../modules/shell.nix
