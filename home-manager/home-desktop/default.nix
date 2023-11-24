@@ -13,6 +13,7 @@
     ../modules/file-sync.nix
     ../modules/font.nix
     ../modules/fuzzy-find.nix
+    ../modules/gaming.nix
     ../modules/git.nix
     ../modules/home-manager.nix
     ../modules/http.nix
