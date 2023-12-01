@@ -3,7 +3,6 @@
     with ps; [
       pylsp-mypy
       pylsp-rope
-      python-lsp-black
       python-lsp-server
       python-lsp-ruff
     ];
@@ -65,8 +64,11 @@ in {
     };
     languages = {
       language-server = {
-        pylsp.config = {
-          pylsp.plugins.rope_autoimport.enabled = true;
+        pylsp = {
+          config.pylsp.plugins = {
+            rope_autoimport.enabled = true;
+            ruff.format = ["I"];
+          };
         };
       };
       language = [
