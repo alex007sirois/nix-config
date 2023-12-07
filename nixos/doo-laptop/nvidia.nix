@@ -36,6 +36,7 @@ in {
       system.nixos.tags = ["external-display"];
       hardware.nvidia.prime.offload.enable = lib.mkForce false;
       hardware.nvidia.powerManagement.enable = lib.mkForce false;
+      environment.variables.WEBKIT_DISABLE_COMPOSITING_MODE = "1"; # https://github.com/NixOS/nixpkgs/issues/32580
     };
   };
 
