@@ -18,6 +18,10 @@
       uncommit = "reset --mixed HEAD~1";
       nuke = "!git reset --hard && git clean -fdx";
     };
+    ignores = [
+      ".direnv"
+      ".envrc"
+    ];
     lfs = {
       enable = true;
     };
