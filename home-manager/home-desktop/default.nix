@@ -15,6 +15,7 @@
     ../modules/fuzzy-find.nix
     ../modules/gaming.nix
     ../modules/git.nix
+    ../modules/gnome.nix
     ../modules/home-manager.nix
     ../modules/http.nix
     ../modules/icon.nix

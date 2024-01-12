@@ -15,6 +15,7 @@
     ../modules/font.nix
     ../modules/fuzzy-find.nix
     ../modules/git.nix
+    ../modules/gnome.nix
     ../modules/home-manager.nix
     ../modules/http.nix
     ../modules/icon.nix
