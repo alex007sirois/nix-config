@@ -25,6 +25,7 @@
     ../modules/nix.nix
     ../modules/pager.nix
     ../modules/productivity.nix
+    ../modules/python.nix
     ../modules/shell.nix
     ../modules/ssh.nix
     ../modules/terminal.nix
