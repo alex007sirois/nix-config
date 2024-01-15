@@ -1,15 +1,7 @@
-{pkgs, ...}: let
-  python-lsp-packages = ps:
-    with ps; [
-      pylsp-mypy
-      pylsp-rope
-      python-lsp-server
-      python-lsp-ruff
-    ];
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    ruff
-    (python311.withPackages python-lsp-packages)
+    nodePackages.pyright
+    ruff-lsp
     nodePackages.bash-language-server
     buf-language-server
     dockerfile-language-server-nodejs
@@ -64,11 +56,8 @@ in {
     };
     languages = {
       language-server = {
-        pylsp = {
-          config.pylsp.plugins = {
-            rope_autoimport.enabled = true;
-            ruff.format = ["I"];
-          };
+        ruff = {
+          command = "ruff-lsp";
         };
       };
       language = [
@@ -82,6 +71,7 @@ in {
         }
         {
           name = "python";
+          language-servers = ["pyright" "ruff"];
           auto-format = true;
         }
       ];
