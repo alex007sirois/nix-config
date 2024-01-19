@@ -35,6 +35,7 @@
           just
           gitlint
           lefthook
+          nil
         ];
       };
     });

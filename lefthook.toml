@@ -2,5 +2,9 @@
 [commit-msg.commands.commit-lint]
 run = "gitlint --msg-filename {1}"
 
+[pre-commit.commands.nix-lint]
+glob = "*.nix"
+run = "nil diagnostics {staged_files}"
+
 [pre-push.commands.build]
 run = "just build"
