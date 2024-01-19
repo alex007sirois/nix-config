@@ -1,5 +1,6 @@
-[commit-msg.commands.lint]
-run = "gitlint"
+# https://github.com/evilmartians/lefthook#readme
+[commit-msg.commands.commit-lint]
+run = "gitlint --msg-filename {1}"
 
 [pre-push.commands.build]
 run = "just build"
