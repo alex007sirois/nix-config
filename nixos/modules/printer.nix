@@ -1,4 +1,7 @@
-{...}: {
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    brlaser
+  ];
   services.avahi = {
     enable = true;
     nssmdns4 = true;
