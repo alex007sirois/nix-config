@@ -12,11 +12,13 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     nix-index-database,
     ...
   } @ inputs: let
+    inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
       "x86_64-linux"
@@ -46,6 +48,7 @@
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
+          inherit (outputs) overlays;
           inherit inputs;
         };
         modules = [
@@ -56,6 +59,8 @@
       };
     buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
   in {
+    overlays = import ./overlays {inherit (nixpkgs) lib;};
+
     devShells = forAllSystemsPkgs (pkgs: {
       default = pkgs.mkShell {
         packages = with pkgs; [

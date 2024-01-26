@@ -1,4 +1,6 @@
-{...}: {
+{overlays, ...}: {
+  nixpkgs.overlays = overlays.all;
+
   imports = [
     ./bootloader.nix
     ./fundamentum-hosts.nix
