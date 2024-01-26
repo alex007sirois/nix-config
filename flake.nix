@@ -23,13 +23,40 @@
       "aarch64-darwin"
       "x86_64-darwin"
     ];
-  in {
-    devShells = forAllSystems (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = false;
+    forAllSystemsPkgs = func:
+      forAllSystems (
+        system: let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = false;
+          };
+        in
+          func pkgs
+      );
+    homeManagerConfig = {
+      machine,
+      user ? "alex",
+    }: {
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.${user} = import (./home-manager + machine);
       };
-    in {
+    };
+    buildNixosSystem = machine:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          (./nixos + machine)
+          home-manager.nixosModules.home-manager
+          (homeManagerConfig {inherit machine;})
+        ];
+      };
+    buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
+  in {
+    devShells = forAllSystemsPkgs (pkgs: {
       default = pkgs.mkShell {
         packages = with pkgs; [
           just
@@ -40,34 +67,9 @@
       };
     });
 
-    nixosConfigurations = {
-      "laptop-doo-asirois-nix" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./nixos/doo-laptop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./home-manager/doo-laptop;
-          }
-        ];
-      };
-    };
-
-    nixosConfigurations = {
-      "home-desktop-asirois-nix" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./nixos/home-desktop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./home-manager/home-desktop;
-          }
-        ];
-      };
+    nixosConfigurations = buildNixosSystems {
+      "laptop-doo-asirois-nix" = "/doo-laptop";
+      "home-desktop-asirois-nix" = "/home-desktop";
     };
 
     templates.default = {
