@@ -1,6 +1,7 @@
 displaylink-*.zip
 result
 
+lefthook-local.toml
 
 ### Created by https://www.gitignore.io
 ### direnv ###
