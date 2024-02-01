@@ -22,7 +22,7 @@
     ../modules/ip.nix
     ../modules/lister.nix
     ../modules/monitoring.nix
-    ../modules/nix.nix
+    ../modules/nix-index.nix
     ../modules/pager.nix
     ../modules/productivity.nix
     ../modules/python.nix

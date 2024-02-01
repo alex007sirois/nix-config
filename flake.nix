@@ -18,7 +18,7 @@
     nix-index-database,
     ...
   } @ inputs: let
-    inherit (self) outputs;
+    inherit (self.outputs) overlays;
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
       "x86_64-linux"
@@ -26,12 +26,11 @@
       "x86_64-darwin"
     ];
     forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
+    home-manager-special-args = {inherit nix-index-database;};
+    nixos-special-args = {inherit inputs overlays home-manager home-manager-special-args;};
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit (outputs) overlays;
-          inherit home-manager inputs;
-        };
+        specialArgs = nixos-special-args;
         modules = [machine];
       };
     buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
