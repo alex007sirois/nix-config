@@ -12,6 +12,7 @@
     ../modules/flake-commands.nix
     ../modules/gaming.nix
     ../modules/garbage-collect.nix
+    ../modules/home-manager.nix
     ../modules/localisation.nix
     ../modules/networking.nix
     ../modules/printer.nix
@@ -21,6 +22,7 @@
   ];
 
   networking.hostName = "home-desktop-asirois-nix";
+  home-manager.users.alex = import ../../home-manager/home-desktop;
 
   nixpkgs.config.allowUnfree = true;
 

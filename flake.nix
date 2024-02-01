@@ -25,43 +25,20 @@
       "aarch64-darwin"
       "x86_64-darwin"
     ];
-    forAllSystemsPkgs = func:
-      forAllSystems (
-        system: let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = false;
-          };
-        in
-          func pkgs
-      );
-    homeManagerConfig = {
-      machine,
-      user ? "alex",
-    }: {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.${user} = import (./home-manager + machine);
-      };
-    };
+    forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit (outputs) overlays;
-          inherit inputs;
+          inherit home-manager inputs;
         };
-        modules = [
-          (./nixos + machine)
-          home-manager.nixosModules.home-manager
-          (homeManagerConfig {inherit machine;})
-        ];
+        modules = [machine];
       };
     buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
   in {
     overlays = import ./overlays {inherit (nixpkgs) lib;};
 
-    devShells = forAllSystemsPkgs (pkgs: {
+    devShells = forAllSystemsPkgs {} (pkgs: {
       default = pkgs.mkShell {
         packages = with pkgs; [
           just
@@ -73,8 +50,8 @@
     });
 
     nixosConfigurations = buildNixosSystems {
-      "laptop-doo-asirois-nix" = "/doo-laptop";
-      "home-desktop-asirois-nix" = "/home-desktop";
+      "laptop-doo-asirois-nix" = ./nixos/doo-laptop;
+      "home-desktop-asirois-nix" = ./nixos/home-desktop;
     };
 
     templates.default = {

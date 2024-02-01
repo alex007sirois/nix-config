@@ -13,6 +13,7 @@
     ../modules/file-system.nix
     ../modules/flake-commands.nix
     ../modules/garbage-collect.nix
+    ../modules/home-manager.nix
     ../modules/localisation.nix
     ../modules/networking.nix
     ../modules/printer.nix
@@ -22,6 +23,7 @@
   ];
 
   networking.hostName = "laptop-doo-asirois-nix";
+  home-manager.users.alex = import ../../home-manager/doo-laptop;
 
   nixpkgs.config.allowUnfree = true;
 
