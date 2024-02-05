@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   time.timeZone = "America/Toronto";
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "ca";
-    xkbVariant = "";
+    variant = "";
   };
   console.keyMap = "cf";
 
