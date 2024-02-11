@@ -3,6 +3,7 @@
 
   imports = [
     ./bootloader.nix
+    ./disko.nix
     ./hardware.nix
     ../modules/audio.nix
     ../modules/container.nix

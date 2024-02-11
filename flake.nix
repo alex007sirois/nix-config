@@ -9,6 +9,9 @@
 
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -16,6 +19,7 @@
     nixpkgs,
     home-manager,
     nix-index-database,
+    disko,
     ...
   } @ inputs: let
     inherit (self.outputs) overlays;
@@ -27,7 +31,7 @@
     ];
     forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
     home-manager-special-args = {inherit nix-index-database;};
-    nixos-special-args = {inherit inputs overlays home-manager home-manager-special-args;};
+    nixos-special-args = {inherit inputs disko overlays home-manager home-manager-special-args;};
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
         specialArgs = nixos-special-args;
