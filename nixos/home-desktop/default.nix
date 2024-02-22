@@ -6,6 +6,7 @@
     ./disko.nix
     ./hardware.nix
     ../modules/audio.nix
+    ../modules/bluetooth.nix
     ../modules/container.nix
     ../modules/desktop-environment.nix
     ../modules/direnv.nix
