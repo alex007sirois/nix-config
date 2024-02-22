@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs.gnomeExtensions; [
-    bluetooth-battery
+    bluetooth-battery-meter
   ];
   dconf = {
     enable = true;
@@ -11,7 +11,7 @@
 
         # `gnome-extensions list` for a list
         enabled-extensions = [
-          "bluetooth-battery@michalw.github.com"
+          "Bluetooth-Battery-Meter@maniacx.github.com"
         ];
       };
     };
