@@ -53,8 +53,8 @@
     });
 
     nixosConfigurations = buildNixosSystems {
-      "laptop-doo-asirois-nix" = ./nixos/doo-laptop;
-      "home-desktop-asirois-nix" = ./nixos/home-desktop;
+      "laptop-doo-asirois-nix" = ./hosts/doo-laptop;
+      "home-desktop-asirois-nix" = ./hosts/home-desktop;
     };
 
     templates.default = {
