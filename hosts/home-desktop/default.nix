@@ -5,22 +5,22 @@
     ./bootloader.nix
     ./disko.nix
     ./hardware.nix
-    ../modules/audio.nix
-    ../modules/bluetooth.nix
-    ../modules/container.nix
-    ../modules/desktop-environment.nix
-    ../modules/direnv.nix
-    ../modules/file-system.nix
-    ../modules/flake-commands.nix
-    ../modules/gaming.nix
-    ../modules/garbage-collect.nix
-    ../modules/home-manager.nix
-    ../modules/localisation.nix
-    ../modules/networking.nix
-    ../modules/printer.nix
-    ../modules/touchpad.nix
-    ../modules/user.nix
-    ../modules/virtualization.nix
+    ../../nixos/audio.nix
+    ../../nixos/bluetooth.nix
+    ../../nixos/container.nix
+    ../../nixos/desktop-environment.nix
+    ../../nixos/direnv.nix
+    ../../nixos/file-system.nix
+    ../../nixos/flake-commands.nix
+    ../../nixos/gaming.nix
+    ../../nixos/garbage-collect.nix
+    ../../nixos/home-manager.nix
+    ../../nixos/localisation.nix
+    ../../nixos/networking.nix
+    ../../nixos/printer.nix
+    ../../nixos/touchpad.nix
+    ../../nixos/user.nix
+    ../../nixos/virtualization.nix
   ];
 
   networking.hostName = "home-desktop-asirois-nix";
