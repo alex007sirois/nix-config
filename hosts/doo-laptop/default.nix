@@ -25,7 +25,7 @@
 
   networking.hostName = "laptop-doo-asirois-nix";
   home-manager.users.alex = {
-    imports = [../../home-manager/modules];
+    imports = [../../home-manager];
 
     programs.git.userEmail = "asirois@dimonoff.com";
 
