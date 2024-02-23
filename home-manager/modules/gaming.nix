@@ -1,7 +1,17 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    cartridges
-    heroic
-    retroarch
-  ];
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.modules.gaming;
+in {
+  options.modules.gaming.enable = lib.mkEnableOption "Gaming";
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      cartridges
+      heroic
+      retroarch
+    ];
+  };
 }

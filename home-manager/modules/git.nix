@@ -5,6 +5,7 @@
 
   programs.git = {
     enable = true;
+    userName = "Alex Sirois";
     aliases = {
       aliases = "config --get-regexp ^alias\.";
       branches = "branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:blue)(%(committerdate:short)) [%(authorname)]' --sort=-committerdate";
