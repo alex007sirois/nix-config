@@ -24,7 +24,18 @@
   ];
 
   networking.hostName = "laptop-doo-asirois-nix";
-  home-manager.users.alex = import ../../home-manager/doo-laptop;
+  home-manager.users.alex = {
+    imports = [../../home-manager/modules];
+
+    programs.git.userEmail = "asirois@dimonoff.com";
+
+    modules = {
+      work.enable = true;
+    };
+
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    home.stateVersion = "22.11";
+  };
 
   nixpkgs.config.allowUnfree = true;
 

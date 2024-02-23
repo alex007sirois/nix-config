@@ -24,7 +24,19 @@
   ];
 
   networking.hostName = "home-desktop-asirois-nix";
-  home-manager.users.alex = import ../../home-manager/home-desktop;
+  home-manager.users.alex = {
+    imports = [../../home-manager/modules];
+
+    programs.git.userEmail = "alex007sirois@gmail.com";
+
+    modules = {
+      gaming.enable = true;
+      torrent.enable = true;
+    };
+
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    home.stateVersion = "22.11";
+  };
 
   nixpkgs.config.allowUnfree = true;
 
