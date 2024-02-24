@@ -40,7 +40,7 @@
       };
     buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
   in {
-    overlays = import ./overlays {inherit (nixpkgs) lib;};
+    overlays = import ./overlays {inherit outputs;};
     nixos = import ./nixos;
     home-manager = import ./home-manager;
     lib = import ./lib {inherit lib;};

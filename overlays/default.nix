@@ -1,14 +1,9 @@
-{lib, ...}:
-with builtins;
-with lib.strings;
-with lib.attrsets; let
-  overlayFiles = removeAttrs (readDir ./.) ["default.nix"];
-  overlays =
-    mapAttrs' (file: _: {
-      name = removeSuffix ".nix" file;
-      value = import ./${file};
-    })
-    overlayFiles;
-  all = attrValues overlays;
+{outputs, ...}: let
+  inherit (outputs) lib;
+  overlays = lib.find.importByName {
+    path = ./.;
+    ignores = ["default.nix"];
+  };
+  all = lib.attrsets.attrValues overlays;
 in
   overlays // {inherit all;}
