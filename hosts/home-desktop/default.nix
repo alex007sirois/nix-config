@@ -1,12 +1,10 @@
-{outputs, ...}: {
+{outputs, ...}: let
+  local-modules = outputs.lib.find.findLocalModules ./.;
+in {
+  imports = [outputs.nixos] ++ local-modules;
+
   nixpkgs.overlays = outputs.overlays.all;
 
-  imports = [
-    ./bootloader.nix
-    ./disko.nix
-    ./hardware.nix
-    outputs.nixos
-  ];
   os-modules = {
     gaming.enable = true;
   };

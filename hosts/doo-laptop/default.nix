@@ -1,13 +1,9 @@
-{outputs, ...}: {
-  nixpkgs.overlays = outputs.overlays.all;
+{outputs, ...}: let
+  local-modules = outputs.lib.find.findLocalModules ./.;
+in {
+  imports = [outputs.nixos] ++ local-modules;
 
-  imports = [
-    ./bootloader.nix
-    ./fundamentum-hosts.nix
-    ./hardware.nix
-    ./nvidia.nix
-    outputs.nixos
-  ];
+  nixpkgs.overlays = outputs.overlays.all;
 
   networking.hostName = "laptop-doo-asirois-nix";
   home-manager.users.alex = {
