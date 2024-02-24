@@ -22,7 +22,7 @@
     disko,
     ...
   } @ inputs: let
-    inherit (self.outputs) overlays;
+    inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
       "x86_64-linux"
@@ -30,8 +30,8 @@
       "x86_64-darwin"
     ];
     forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
-    home-manager-special-args = {inherit nix-index-database;};
-    nixos-special-args = {inherit inputs disko overlays home-manager home-manager-special-args;};
+    home-manager-special-args = {inherit nix-index-database outputs;};
+    nixos-special-args = {inherit inputs disko home-manager home-manager-special-args outputs;};
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
         specialArgs = nixos-special-args;
@@ -40,6 +40,8 @@
     buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
   in {
     overlays = import ./overlays {inherit (nixpkgs) lib;};
+    nixos = import ./nixos;
+    home-manager = import ./home-manager;
 
     devShells = forAllSystemsPkgs {} (pkgs: {
       default = pkgs.mkShell {

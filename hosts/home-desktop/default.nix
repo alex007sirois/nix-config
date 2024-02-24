@@ -1,11 +1,11 @@
-{overlays, ...}: {
-  nixpkgs.overlays = overlays.all;
+{outputs, ...}: {
+  nixpkgs.overlays = outputs.overlays.all;
 
   imports = [
     ./bootloader.nix
     ./disko.nix
     ./hardware.nix
-    ../../nixos
+    outputs.nixos
   ];
   os-modules = {
     gaming.enable = true;
@@ -13,7 +13,7 @@
 
   networking.hostName = "home-desktop-asirois-nix";
   home-manager.users.alex = {
-    imports = [../../home-manager];
+    imports = [outputs.home-manager];
 
     programs.git.userEmail = "alex007sirois@gmail.com";
 

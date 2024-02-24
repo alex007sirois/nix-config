@@ -1,17 +1,17 @@
-{overlays, ...}: {
-  nixpkgs.overlays = overlays.all;
+{outputs, ...}: {
+  nixpkgs.overlays = outputs.overlays.all;
 
   imports = [
     ./bootloader.nix
     ./fundamentum-hosts.nix
     ./hardware.nix
     ./nvidia.nix
-    ../../nixos
+    outputs.nixos
   ];
 
   networking.hostName = "laptop-doo-asirois-nix";
   home-manager.users.alex = {
-    imports = [../../home-manager];
+    imports = [outputs.home-manager];
 
     programs.git.userEmail = "asirois@dimonoff.com";
 
