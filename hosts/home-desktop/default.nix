@@ -5,23 +5,11 @@
     ./bootloader.nix
     ./disko.nix
     ./hardware.nix
-    ../../nixos/audio.nix
-    ../../nixos/bluetooth.nix
-    ../../nixos/container.nix
-    ../../nixos/desktop-environment.nix
-    ../../nixos/direnv.nix
-    ../../nixos/file-system.nix
-    ../../nixos/flake-commands.nix
-    ../../nixos/gaming.nix
-    ../../nixos/garbage-collect.nix
-    ../../nixos/home-manager.nix
-    ../../nixos/localisation.nix
-    ../../nixos/networking.nix
-    ../../nixos/printer.nix
-    ../../nixos/touchpad.nix
-    ../../nixos/user.nix
-    ../../nixos/virtualization.nix
+    ../../nixos
   ];
+  os-modules = {
+    gaming.enable = true;
+  };
 
   networking.hostName = "home-desktop-asirois-nix";
   home-manager.users.alex = {
@@ -37,7 +25,6 @@
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     home.stateVersion = "22.11";
   };
-
   nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default

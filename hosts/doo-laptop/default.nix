@@ -6,21 +6,7 @@
     ./fundamentum-hosts.nix
     ./hardware.nix
     ./nvidia.nix
-    ../../nixos/audio.nix
-    ../../nixos/bluetooth.nix
-    ../../nixos/container.nix
-    ../../nixos/desktop-environment.nix
-    ../../nixos/direnv.nix
-    ../../nixos/file-system.nix
-    ../../nixos/flake-commands.nix
-    ../../nixos/garbage-collect.nix
-    ../../nixos/home-manager.nix
-    ../../nixos/localisation.nix
-    ../../nixos/networking.nix
-    ../../nixos/printer.nix
-    ../../nixos/touchpad.nix
-    ../../nixos/user.nix
-    ../../nixos/virtualization.nix
+    ../../nixos
   ];
 
   networking.hostName = "laptop-doo-asirois-nix";
