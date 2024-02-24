@@ -22,6 +22,7 @@
     disko,
     ...
   } @ inputs: let
+    inherit (nixpkgs) lib;
     inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
@@ -42,6 +43,7 @@
     overlays = import ./overlays {inherit (nixpkgs) lib;};
     nixos = import ./nixos;
     home-manager = import ./home-manager;
+    lib = import ./lib {inherit lib;};
 
     devShells = forAllSystemsPkgs {} (pkgs: {
       default = pkgs.mkShell {
