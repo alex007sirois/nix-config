@@ -1,5 +1,6 @@
 self: super: {
   lazygit = super.lazygit.overrideAttrs {
+    version = "0.40.3.dev";
     src = super.fetchFromGitHub {
       repo = "lazygit";
       owner = "jesseduffield";
