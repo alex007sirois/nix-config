@@ -1,11 +1,11 @@
 self: super: {
   lazygit = super.lazygit.overrideAttrs {
-    version = "0.40.3.dev";
+    version = "0.41.0";
     src = super.fetchFromGitHub {
       repo = "lazygit";
       owner = "jesseduffield";
-      rev = "cb1b13e95e09232cced846d167dae6cb21ba696e";
-      sha256 = "o8+baCcHBRZT3Xb2aAt+uRnKoDcZImNEsRh7QCBlm0w=";
+      rev = "v0.41.0";
+      sha256 = "Ok6QnXw3oDeSzBekft8cDXM/YsADgF1NZznfNoGNvck=";
     };
   };
 }
