@@ -11,7 +11,13 @@ in {
     home.packages = with pkgs; [
       cartridges
       heroic
-      retroarch
+      (retroarch.override {
+        cores = with libretro; [
+          bsnes
+          dolphin
+          parallel-n64
+        ];
+      })
     ];
   };
 }
