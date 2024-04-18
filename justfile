@@ -1,19 +1,18 @@
-default: diff
+default: build
+
+flake := justfile_directory()
 
 update:
 	nix flake update
 
 build:
-	nixos-rebuild build --flake .
-
-switch:
-	sudo nixos-rebuild switch --flake .
+	nh os test --dry {{flake}}
 
 test:
-	sudo nixos-rebuild test --flake .
+	nh os test {{flake}}
 
-diff: build
-	nix store diff-closures /nix/var/nix/profiles/system result/
+switch:
+	nh os boot -a {{flake}}
 
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
