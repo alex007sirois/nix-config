@@ -47,4 +47,8 @@
       };
     };
   };
+  xdg.configFile."zellij/layouts" = {
+    source = ./zellij-layouts;
+    recursive = true;
+  };
 }
