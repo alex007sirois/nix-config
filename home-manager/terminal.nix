@@ -52,4 +52,12 @@
     source = ./zellij-layouts;
     recursive = true;
   };
+  home.shellAliases = {
+    zr = "zellij run -- direnv-run";
+    zrf = "zellij run --floating -- direnv-run";
+    zri = "zellij run --in-place -- direnv-run";
+    ze = "zellij edit";
+    zef = "zellij edit --floating";
+    zei = "zellij edit --in-place";
+  };
 }
