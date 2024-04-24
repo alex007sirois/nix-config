@@ -31,6 +31,7 @@
       enableZshIntegration = true;
       settings = {
         default_shell = "zsh";
+        session_serialization = true;
         themes.default = {
           fg = "#FDF6E3";
           bg = "#002B36";
