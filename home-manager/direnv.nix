@@ -1,4 +1,10 @@
 {pkgs, ...}: let
+  direnv-run =
+    pkgs.writeShellScriptBin "direnv-run"
+    ''
+      export DIRENV_LOG_FORMAT=""
+      ${pkgs.direnv}/bin/direnv exec . ${pkgs.zsh}/bin/zsh -i -c "$*"
+    '';
   nixify =
     pkgs.writeShellScriptBin "nixify"
     ''
@@ -19,5 +25,8 @@ in {
     config.global.hide_env_diff = true;
   };
 
-  home.packages = [nixify];
+  home.packages = [
+    direnv-run
+    nixify
+  ];
 }
