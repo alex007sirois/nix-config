@@ -1,11 +1,5 @@
 [
   {
-    name = "better-comments";
-    publisher = "aaron-bond";
-    version = "3.0.2";
-    sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5";
-  }
-  {
     name = "code-coverage";
     publisher = "markis";
     version = "1.11.0";
