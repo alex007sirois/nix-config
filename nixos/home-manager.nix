@@ -8,5 +8,6 @@
     extraSpecialArgs = home-manager-special-args;
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "hmbkp";
   };
 }
