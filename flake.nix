@@ -12,6 +12,9 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix";
+    # stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -20,6 +23,7 @@
     home-manager,
     nix-index-database,
     disko,
+    stylix,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -32,7 +36,7 @@
     ];
     forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
     home-manager-special-args = {inherit nix-index-database outputs;};
-    nixos-special-args = {inherit inputs disko home-manager home-manager-special-args outputs;};
+    nixos-special-args = {inherit inputs stylix disko home-manager home-manager-special-args outputs;};
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
         specialArgs = nixos-special-args;

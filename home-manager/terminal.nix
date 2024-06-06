@@ -32,19 +32,6 @@
       settings = {
         default_shell = "zsh";
         session_serialization = true;
-        themes.default = {
-          fg = "#FDF6E3";
-          bg = "#002B36";
-          black = "#073642";
-          red = "#DC322F";
-          green = "#859900";
-          yellow = "#B58900";
-          blue = "#268BD2";
-          magenta = "#D33682";
-          cyan = "#2AA198";
-          white = "#EEE8D5";
-          orange = "#CB4B16";
-        };
       };
     };
   };
