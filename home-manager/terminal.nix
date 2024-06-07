@@ -19,7 +19,6 @@
           blink_timeout = 10;
           blink_interval = 500;
         };
-        font.normal.family = "mononoki Nerd Font Mono";
         shell = {
           program = "zellij";
           args = ["--layout" "welcome"];
