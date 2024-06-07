@@ -1,6 +1,5 @@
-{...}: {
-  networking.extraHosts =
-  ''
+{
+  networking.extraHosts = ''
     127.0.0.1 business-unit.fundamentum.test
     127.0.0.1 devices-oauth.fundamentum.test
     127.0.0.1 devices-gateway.fundamentum.test
