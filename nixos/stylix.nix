@@ -11,6 +11,7 @@
     base16Scheme = lib.mkDefault "${base16-schemes}/share/themes/onedark.yaml";
     image = lib.mkDefault "${pantheon.elementary-wallpapers}/share/backgrounds/Photo of Valley.jpg";
     polarity = "dark";
+    opacity.terminal = 0.98;
     fonts = let
       nerdfont = {
         name = "mononoki Nerd Font Mono";

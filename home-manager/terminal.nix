@@ -3,10 +3,7 @@
     alacritty = {
       enable = true;
       settings = {
-        window = {
-          startup_mode = "Maximized";
-          opacity = 0.93;
-        };
+        window.startup_mode = "Maximized";
         cursor = {
           style = {
             shape = "Beam";
