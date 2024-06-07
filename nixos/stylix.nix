@@ -12,6 +12,11 @@
     image = lib.mkDefault "${pantheon.elementary-wallpapers}/share/backgrounds/Photo of Valley.jpg";
     polarity = "dark";
     opacity.terminal = 0.98;
+    cursor = {
+      name = "Adwaita";
+      size = 24;
+      package = gnome.adwaita-icon-theme;
+    };
     fonts = let
       nerdfont = {
         name = "mononoki Nerd Font Mono";
