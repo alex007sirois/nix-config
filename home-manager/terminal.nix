@@ -28,6 +28,7 @@
       settings = {
         default_shell = "zsh";
         session_serialization = true;
+        pane_viewport_serialization = true;
       };
     };
   };
