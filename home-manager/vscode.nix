@@ -12,6 +12,7 @@
   extension-loader = extensions-path: (import extensions-path) {inherit pkgs;};
   extensions = builtins.concatMap extension-loader extensions-paths;
 in {
+  stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
     extensions = extensions;
