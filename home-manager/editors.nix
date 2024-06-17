@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    nodePackages.pyright
+    pyright
     ruff-lsp
-    nodePackages.bash-language-server
+    bash-language-server
     buf-language-server
     dockerfile-language-server-nodejs
     gopls
