@@ -10,8 +10,8 @@
   };
   programs.dconf.enable = true;
   environment.gnome.excludePackages = with pkgs; [
-    gnome.gnome-terminal
-    gnome.epiphany
+    gnome-terminal
+    epiphany
     gnome-console
   ];
 }

@@ -16,7 +16,7 @@
     cursor = {
       name = "Adwaita";
       size = 24;
-      package = gnome.adwaita-icon-theme;
+      package = adwaita-icon-theme;
     };
     fonts = let
       nerdfont = {
