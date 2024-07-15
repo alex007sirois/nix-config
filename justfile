@@ -2,7 +2,7 @@ default: build
 
 flake := justfile_directory()
 
-update:
+update: && build
 	nix flake update
 
 build:
