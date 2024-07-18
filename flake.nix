@@ -14,7 +14,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
-    # stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
