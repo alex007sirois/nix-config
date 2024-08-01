@@ -14,7 +14,7 @@ in {
     bat
     chafa
     fd
-    ffmpeg_5-full
+    ffmpeg-full
     file
     hexyl
     lnav
