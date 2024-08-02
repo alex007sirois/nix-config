@@ -6,13 +6,13 @@ update: && build
 	nix flake update
 
 build:
-	nh os test --dry {{flake}}
+	nh os build {{flake}}
 
 test:
 	nh os test {{flake}}
 
 switch:
-	nh os boot -a {{flake}}
+	nh os boot --ask {{flake}}
 
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
