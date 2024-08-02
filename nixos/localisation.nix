@@ -9,7 +9,8 @@
   i18n = {
     defaultLocale = "en_CA.UTF-8";
     inputMethod = {
-      enabled = "ibus";
+      enable = true;
+      type = "ibus";
       ibus.engines = [
         (
           pkgs.ibus-engines.typing-booster.override
