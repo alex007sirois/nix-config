@@ -11,6 +11,7 @@
     yaml-language-server
     alejandra
     nil
+    nixd
   ];
 
   stylix.targets.helix.enable = false;
@@ -58,13 +59,13 @@
     };
     languages = {
       language-server = {
-        ruff = {
-          command = "ruff-lsp";
-        };
+        nixd.command = "nixd";
+        ruff.command = "ruff-lsp";
       };
       language = [
         {
           name = "nix";
+          language-servers = ["nixd" "nil"];
           formatter = {
             command = "alejandra";
             args = ["--quiet" "-"];
