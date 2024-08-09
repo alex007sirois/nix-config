@@ -1,7 +1,8 @@
-{lib, ...}:
-with builtins;
-with lib.strings;
-with lib.attrsets; rec {
+{lib, ...}: let
+  inherit (builtins) readDir;
+  inherit (lib.strings) removeSuffix hasSuffix;
+  inherit (lib.attrsets) filterAttrs mapAttrsToList listToAttrs nameValuePair;
+in rec {
   findModules = {
     path,
     ignores ? [],
