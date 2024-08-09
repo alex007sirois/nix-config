@@ -30,6 +30,8 @@
           normal = "block";
           select = "underline";
         };
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics.cursor-line = "warning";
         indent-guides = {
           render = true;
         };
