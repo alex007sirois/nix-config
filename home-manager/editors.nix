@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    pyright
+    basedpyright
     ruff-lsp
     bash-language-server
     buf-language-server
@@ -61,6 +61,41 @@
       language-server = {
         nixd.command = "nixd";
         ruff.command = "ruff-lsp";
+        basedpyright.config.basedpyright = {
+          disableOrganizeImports = true;
+          analysis = {
+            diagnosticMode = "workspace";
+            diagnosticSeverityOverrides = let
+              disabled = "none";
+              ruff = disabled;
+              info = "information";
+              warning = "warning";
+              # https://github.com/DetachHead/basedpyright/issues/555
+              unreachable = info;
+              deprecated = info;
+              unused = info;
+            in {
+              reportCallInDefaultInitializer = ruff;
+              reportPrivateUsage = ruff;
+              reportUnusedImport = ruff;
+              reportUnusedVariable = ruff;
+              reportUnknownMemberType = disabled;
+              reportUnusedCallResult = disabled;
+              reportUnreachable = unreachable;
+              reportUnusedClass = unused;
+              reportUnusedFunction = unused;
+              reportDeprecated = deprecated;
+              reportInvalidCast = info;
+              reportMissingModuleSource = warning;
+              reportMissingTypeStubs = warning;
+              reportPrivateLocalImportUsage = warning;
+              reportUnknownArgumentType = warning;
+              reportUnknownLambdaType = warning;
+              reportUnknownParameterType = warning;
+              reportUnknownVariableType = warning;
+            };
+          };
+        };
       };
       language = [
         {
@@ -74,7 +109,7 @@
         }
         {
           name = "python";
-          language-servers = ["pyright" "ruff"];
+          language-servers = ["basedpyright" "ruff"];
           auto-format = true;
         }
       ];
