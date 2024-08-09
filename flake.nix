@@ -15,6 +15,9 @@
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    helix.url = "github:helix-editor/helix";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -24,6 +27,7 @@
     nix-index-database,
     disko,
     stylix,
+    helix,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -46,6 +50,7 @@
   in {
     overlays = import ./overlays {
       inherit (outputs) lib;
+      inherit helix;
     };
     nixos = import ./nixos;
     home-manager = import ./home-manager;
