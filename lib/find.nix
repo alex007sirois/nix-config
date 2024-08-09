@@ -30,7 +30,7 @@ in rec {
     in
       if args == null
       then imported
-      else imported;
+      else imported args;
   in
     listToAttrs (map (m: nameValuePair (nameFunc m) (valueFunc m)) modules);
 
