@@ -1,7 +1,7 @@
 {lib, ...}:
 lib.extend (
-  self: super: let
-    lib = super;
+  final: prev: let
+    lib = prev;
     find = import ./find.nix {inherit lib;};
   in {inherit find;}
 )
