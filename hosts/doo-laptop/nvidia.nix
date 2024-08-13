@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -20,7 +19,6 @@ in {
 
   services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
     nvidiaPersistenced = true;
     powerManagement.enable = true;
 
