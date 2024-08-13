@@ -19,8 +19,7 @@ in {
 
   services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
-    nvidiaPersistenced = true;
-    powerManagement.enable = true;
+    powerManagement.finegrained = true;
 
     prime = {
       offload.enable = true;
@@ -32,8 +31,12 @@ in {
   specialisation = {
     external-display.configuration = {
       system.nixos.tags = ["external-display"];
-      hardware.nvidia.prime.offload.enable = lib.mkForce false;
-      hardware.nvidia.powerManagement.enable = lib.mkForce false;
+      hardware.nvidia = {
+        powerManagement.finegrained = lib.mkForce false;
+        prime = {
+          offload.enable = lib.mkForce false;
+        };
+      };
       environment.variables.WEBKIT_DISABLE_COMPOSITING_MODE = "1"; # https://github.com/NixOS/nixpkgs/issues/32580
     };
   };
