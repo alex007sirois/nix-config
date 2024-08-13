@@ -35,6 +35,7 @@ in {
         powerManagement.finegrained = lib.mkForce false;
         prime = {
           offload.enable = lib.mkForce false;
+          sync.enable = true;
         };
       };
       environment.variables.WEBKIT_DISABLE_COMPOSITING_MODE = "1"; # https://github.com/NixOS/nixpkgs/issues/32580
