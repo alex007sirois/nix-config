@@ -63,7 +63,6 @@
     };
     languages = {
       language-server = {
-        nixd.command = "nixd";
         ruff.command = "ruff-lsp";
         basedpyright.config.basedpyright = {
           disableOrganizeImports = true;
@@ -104,7 +103,6 @@
       language = [
         {
           name = "nix";
-          language-servers = ["nixd" "nil"];
           formatter = {
             command = "alejandra";
             args = ["--quiet" "-"];
