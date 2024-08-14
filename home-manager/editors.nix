@@ -19,6 +19,15 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    ignores = [
+      "!.dockerignore"
+      "!.env*"
+      "!.gitlint"
+      "!.helix"
+      "!.helm"
+      "!*.toml"
+      "!*.ya?ml"
+    ];
     settings = {
       theme = "dark_plus";
       editor = {
