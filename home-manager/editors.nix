@@ -18,6 +18,7 @@
 
   programs.helix = {
     enable = true;
+    defaultEditor = true;
     settings = {
       theme = "dark_plus";
       editor = {
@@ -118,5 +119,4 @@
       ];
     };
   };
-  home.sessionVariables.EDITOR = "hx";
 }
