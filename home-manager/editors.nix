@@ -34,7 +34,6 @@
         bufferline = "multiple";
         color-modes = true;
         cursorline = true;
-        line-number = "relative";
         cursor-shape = {
           insert = "bar";
           normal = "block";
