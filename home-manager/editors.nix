@@ -49,7 +49,6 @@
           display-messages = true;
           display-inlay-hints = true;
         };
-        smart-tab.supersede-menu = true;
       };
       keys = {
         normal = {
