@@ -29,6 +29,22 @@
         default_shell = "zsh";
         session_serialization = true;
         pane_viewport_serialization = true;
+        keybinds = {
+          unbind = ["Ctrl o"];
+          session = {
+            bind = {
+              _args = ["Ctrl w"];
+              SwitchToMode = "Normal";
+            };
+          };
+          shared_except = {
+            _args = ["session" "locked"];
+            bind = {
+              _args = ["Ctrl w"];
+              SwitchToMode = "Session";
+            };
+          };
+        };
       };
     };
   };
