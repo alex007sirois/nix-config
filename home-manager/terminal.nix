@@ -30,7 +30,7 @@
         session_serialization = true;
         pane_viewport_serialization = true;
         keybinds = {
-          unbind = ["Ctrl o"];
+          unbind = ["Ctrl o" "Ctrl b"];
           session = {
             bind = {
               _args = ["Ctrl w"];
