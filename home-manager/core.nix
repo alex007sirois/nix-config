@@ -3,7 +3,7 @@
     coreutils-full
     choose
     hyperfine
-    sad
+    sd
     viddy
   ];
 
