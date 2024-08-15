@@ -1,14 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
-  pistol-preview = "--preview 'pistol {}'";
-  open-bind = "--bind 'ctrl-o:execute-silent(xdg-open {})'";
-  edit-bind = "--bind 'ctrl-e:execute($EDITOR {})'";
-  yank-bind = "--bind 'ctrl-y:execute-silent(echo -n {} | xclip -sel clip)'";
-  history-yank-bind = "--bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -sel clip)'";
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     eza
     bat
@@ -22,40 +12,6 @@ in {
     pandoc
     pdfminer
   ];
-
-  programs.fzf = {
-    enable = true;
-    defaultCommand = "fd --follow";
-    fileWidgetCommand = "fd --follow --type file";
-    fileWidgetOptions = [
-      pistol-preview
-      yank-bind
-      edit-bind
-      open-bind
-    ];
-    changeDirWidgetCommand = "fd --follow --type directory";
-    changeDirWidgetOptions = [
-      pistol-preview
-      yank-bind
-      open-bind
-    ];
-    historyWidgetOptions = [
-      history-yank-bind
-    ];
-  };
-
-  home.shellAliases = {
-    fzf = lib.strings.concatStringsSep " " [
-      "fzf"
-      yank-bind
-    ];
-    fzf-file = lib.strings.concatStringsSep " " [
-      "fzf"
-      pistol-preview
-      edit-bind
-      open-bind
-    ];
-  };
 
   programs.pistol = {
     enable = true;
