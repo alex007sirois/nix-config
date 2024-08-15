@@ -1,8 +1,4 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    bashInteractive
-  ];
-
+{
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
