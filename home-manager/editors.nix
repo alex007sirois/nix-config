@@ -41,21 +41,15 @@
         };
         end-of-line-diagnostics = "hint";
         inline-diagnostics.cursor-line = "warning";
-        indent-guides = {
-          render = true;
-        };
+        indent-guides.render = true;
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
         };
       };
       keys = {
-        normal = {
-          X = ["extend_line_up" "extend_to_line_bounds"];
-        };
-        select = {
-          X = ["extend_line_up" "extend_to_line_bounds"];
-        };
+        normal.X = ["extend_line_up" "extend_to_line_bounds"];
+        select.X = ["extend_line_up" "extend_to_line_bounds"];
         insert = {
           up = "no_op";
           down = "no_op";
