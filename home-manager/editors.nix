@@ -74,15 +74,15 @@
               ruff = disabled;
               info = "information";
               warning = "warning";
-              # https://github.com/DetachHead/basedpyright/issues/555
-              unreachable = info;
-              deprecated = info;
-              unused = info;
+              unreachable = "unreachable";
+              deprecated = "deprecated";
+              unused = "unused";
             in {
               reportCallInDefaultInitializer = ruff;
               reportPrivateUsage = ruff;
               reportUnusedImport = ruff;
               reportUnusedVariable = ruff;
+              reportUnusedParameter = ruff;
               reportUnknownMemberType = disabled;
               reportUnusedCallResult = disabled;
               reportUnreachable = unreachable;
