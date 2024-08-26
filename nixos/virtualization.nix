@@ -5,7 +5,7 @@
   programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-boxes
+    gnome-boxes
     spice-gtk
   ];
 }
