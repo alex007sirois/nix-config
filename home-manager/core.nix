@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    coreutils-full
     choose
+    coreutils-full
     hyperfine
+    rnr
     sd
     viddy
   ];
