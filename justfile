@@ -2,7 +2,10 @@ default: build
 
 flake := justfile_directory()
 
-update: && build
+update input="nixpkgs":
+	nix flake lock --update-input {{input}}
+
+update-all:
 	nix flake update
 
 build:
