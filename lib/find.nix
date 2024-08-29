@@ -9,7 +9,7 @@ in rec {
   }: let
     dir = removeAttrs (readDir path) ignores;
     fileAttrs = filterAttrs (name: value: (hasSuffix ".nix" name) && (value == "regular")) dir;
-    files = mapAttrsToList (name: value: /${path}/${name}) fileAttrs;
+    files = mapAttrsToList (name: _value: /${path}/${name}) fileAttrs;
   in
     files;
 

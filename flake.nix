@@ -47,7 +47,7 @@
         specialArgs = nixos-special-args;
         modules = [machine];
       };
-    buildNixosSystems = builtins.mapAttrs (hostname: machine: buildNixosSystem machine);
+    buildNixosSystems = builtins.mapAttrs (_hostname: machine: buildNixosSystem machine);
   in {
     overlays = import ./overlays {
       inherit (outputs) lib;
