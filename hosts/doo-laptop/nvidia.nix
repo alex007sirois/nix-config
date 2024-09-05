@@ -19,6 +19,7 @@ in {
 
   services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
+    open = false;
     powerManagement.finegrained = true;
 
     prime = {
