@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     basedpyright
-    ruff-lsp
+    ruff
     bash-language-server
     buf-language-server
     dockerfile-language-server-nodejs
@@ -64,7 +64,6 @@
     };
     languages = {
       language-server = {
-        ruff.command = "ruff-lsp";
         basedpyright.config.basedpyright = {
           disableOrganizeImports = true;
           analysis = {
