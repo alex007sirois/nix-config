@@ -9,7 +9,7 @@
     aliases = {
       aliases = "config --get-regexp ^alias\.";
       branches = "branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:blue)(%(committerdate:short)) [%(authorname)]' --sort=-committerdate";
-      logs = "log --pretty=format:'%C(auto)%h%C(reset) %C(cyan)%ad%C(auto)%d%C(reset) %s %C(blue)[%cn]%C(reset)' --date=short-local";
+      logs = "log --pretty=format:'%C(auto)%h%C(reset) %C(cyan)%ad%C(auto)%d%C(reset) %s %C(blue)[%cn]%C(reset)' --date=short-local --ext-diff";
       save = "!git add -A && git commit -m 'chore: savepoint'";
       uncommit = "reset --mixed HEAD~1";
       nuke = "!git reset --hard && git clean -fdx";
@@ -33,6 +33,11 @@
       diff = {
         colorMoved = "default";
         renames = "copy";
+        tool = "difftastic";
+      };
+      difftool = {
+        prompt = false;
+        difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"'';
       };
       fetch = {
         prune = true;
@@ -49,6 +54,7 @@
         updateRefs = true;
         autoStash = true;
       };
+      pager.difftool = true;
       pull = {
         rebase = true;
       };
