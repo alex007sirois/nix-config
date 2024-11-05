@@ -16,7 +16,7 @@
           blink_timeout = 10;
           blink_interval = 500;
         };
-        shell = {
+        terminal.shell = {
           program = "zellij";
           args = ["--layout" "welcome"];
         };
