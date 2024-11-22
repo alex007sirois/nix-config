@@ -3,7 +3,7 @@
     basedpyright
     ruff
     bash-language-server
-    buf-language-server
+    buf
     dockerfile-language-server-nodejs
     gopls
     vscode-langservers-extracted
@@ -98,6 +98,10 @@
               reportUnknownVariableType = warning;
             };
           };
+        };
+        bufls = {
+          command = "buf";
+          args = ["beta" "lsp"];
         };
       };
       language = [
