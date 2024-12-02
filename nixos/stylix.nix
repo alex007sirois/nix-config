@@ -21,7 +21,7 @@
     fonts = let
       nerdfont = {
         name = "mononoki Nerd Font Mono";
-        package = nerdfonts.override {fonts = ["Mononoki"];};
+        package = nerd-fonts.mononoki;
       };
       cantarell = {
         name = "cantarell";
