@@ -22,6 +22,7 @@
     "actions.fundamentum.test"
     "panels.fundamentum.test"
     "poseidon-database.fundamentum.test"
+    "resfab-cloud.fundamentum.test"
   ];
   ipv4 = map (h: "127.0.0.1 ${h}") hosts;
   ipv6 = map (h: "::1 ${h}") hosts;
