@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  helix-gpt = pkgs.writeShellScriptBin "helix-gpt" ''
+    if [ -z "$COPILOT_API_KEY" ]; then
+      export COPILOT_API_KEY="$(pass show Copilot/api_key)"
+    fi
+    exec ${pkgs.helix-gpt}/bin/helix-gpt "$@"
+  '';
+in {
   home.packages = with pkgs; [
     basedpyright
     ruff
@@ -12,6 +19,7 @@
     alejandra
     nil
     nixd
+    helix-gpt
   ];
 
   stylix.targets.helix.enable = false;
@@ -103,10 +111,15 @@
           command = "buf";
           args = ["beta" "lsp"];
         };
+        gpt = {
+          command = "helix-gpt";
+          args = ["--handler" "copilot"];
+        };
       };
       language = [
         {
           name = "nix";
+          language-servers = ["nil" "nixd" "gpt"];
           formatter = {
             command = "alejandra";
             args = ["--quiet" "-"];
@@ -115,8 +128,16 @@
         }
         {
           name = "python";
-          language-servers = ["basedpyright" "ruff"];
+          language-servers = ["basedpyright" "ruff" "gpt"];
           auto-format = true;
+        }
+        {
+          name = "go";
+          language-servers = ["gopls" "golangci-lint-lsp" "gpt"];
+        }
+        {
+          name = "rust";
+          language-servers = ["rust-analyzer" "gpt"];
         }
       ];
     };
