@@ -15,6 +15,6 @@ in {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
-    extensions = extensions;
+    profiles.default.extensions = extensions;
   };
 }
