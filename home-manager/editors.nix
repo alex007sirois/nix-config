@@ -107,10 +107,6 @@ in {
             };
           };
         };
-        bufls = {
-          command = "buf";
-          args = ["beta" "lsp"];
-        };
         gpt = {
           command = "helix-gpt";
           args = ["--handler" "copilot"];
