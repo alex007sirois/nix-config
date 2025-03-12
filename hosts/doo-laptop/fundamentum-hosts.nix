@@ -23,6 +23,11 @@
     "panels.fundamentum.test"
     "poseidon-database.fundamentum.test"
     "resfab-cloud.fundamentum.test"
+    "parknet-adapter.fundamentum.test"
+    "scms-api-gateway.fundamentum.test"
+    "otel-collector.fundamentum.test"
+    "prometheus.fundamentum.test"
+    "grafana.fundamentum.test"
   ];
   ipv4 = map (h: "127.0.0.1 ${h}") hosts;
   ipv6 = map (h: "::1 ${h}") hosts;
