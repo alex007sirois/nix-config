@@ -13,7 +13,7 @@
     sessionVariables = {
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=244";
     };
-    initExtra = ''
+    initContent = ''
       bindkey '^H' backward-kill-word
       bindkey '5~' kill-word
     '';
