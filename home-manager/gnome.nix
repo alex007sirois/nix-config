@@ -2,6 +2,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     bluetooth-battery-meter
   ];
+  stylix.targets.qt.platform = "qtct";
   dconf = {
     enable = true;
     settings = {
