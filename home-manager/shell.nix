@@ -3,7 +3,7 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    history.expireDuplicatesFirst = true;
+    history.size = 0;
     oh-my-zsh = {
       enable = true;
       extraConfig = ''
