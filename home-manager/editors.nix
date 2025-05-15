@@ -72,6 +72,15 @@ in {
     };
     languages = {
       language-server = {
+        rust-analyzer = {
+          config.rust-analyzer = {
+            check.command = "clippy";
+            imports = {
+              granularity.group = "module";
+              prefix = "self";
+            };
+          };
+        };
         basedpyright.config.basedpyright = {
           disableOrganizeImports = true;
           analysis = {
