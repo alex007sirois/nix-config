@@ -1,6 +1,7 @@
 default: build
 
 flake := justfile_directory()
+determinate-flags := "--option extra-substituters https://install.determinate.systems --option extra-trusted-public-keys cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
 
 update *inputs:
 	nix flake update {{inputs}}
@@ -9,13 +10,13 @@ update-all:
 	nix flake update
 
 build:
-	nh os build {{flake}}
+	nh os build {{flake}} -- {{determinate-flags}}
 
 test:
-	nh os test {{flake}}
+	nh os test {{flake}} -- {{determinate-flags}}
 
 switch:
-	nh os boot --ask {{flake}}
+	nh os boot --ask {{flake}} -- {{determinate-flags}}
 
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
