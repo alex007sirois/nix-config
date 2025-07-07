@@ -17,7 +17,6 @@
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.inputs.home-manager.follows = "home-manager";
 
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
