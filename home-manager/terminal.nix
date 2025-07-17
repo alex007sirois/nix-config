@@ -25,33 +25,9 @@
     zellij = {
       enable = true;
       enableZshIntegration = true;
-      settings = {
-        default_shell = "zsh";
-        session_serialization = true;
-        pane_viewport_serialization = true;
-        keybinds = {
-          unbind = ["Ctrl o" "Ctrl b"];
-          session = {
-            bind = {
-              _args = ["Ctrl w"];
-              SwitchToMode = "Normal";
-            };
-          };
-          shared_except = {
-            _args = ["session" "locked"];
-            bind = {
-              _args = ["Ctrl w"];
-              SwitchToMode = "Session";
-            };
-          };
-        };
-      };
     };
   };
-  xdg.configFile."zellij/layouts" = {
-    source = ./zellij-layouts;
-    recursive = true;
-  };
+  xdg.configFile."zellij/config.kdl".source = ./zellij/config.kdl;
   home.shellAliases = {
     zr = "zellij run -- direnv-run";
     zrf = "zellij run --floating -- direnv-run";
