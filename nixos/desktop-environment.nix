@@ -10,7 +10,13 @@
     };
     desktopManager.gnome.enable = true;
   };
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    evolution = {
+      enable = true;
+      plugins = [pkgs.evolution-ews];
+    };
+  };
   environment.gnome.excludePackages = with pkgs; [
     gnome-terminal
     epiphany
