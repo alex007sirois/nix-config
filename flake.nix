@@ -25,7 +25,6 @@
   outputs = {
     self,
     nixpkgs,
-    determinate,
     home-manager,
     nix-index-database,
     disko,
