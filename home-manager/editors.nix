@@ -20,6 +20,11 @@ in {
     nil
     nixd
     helix-gpt
+
+    tailwindcss-language-server
+    vue-language-server
+    typescript-language-server
+    dprint
   ];
 
   stylix.targets.helix.enable = false;
@@ -120,6 +125,24 @@ in {
           command = "helix-gpt";
           args = ["--handler" "copilot"];
         };
+        typescript-language-server.config = {
+          plugins = [
+            {
+              name = "@vue/typescript-plugin";
+              location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server/";
+              languages = ["vue"];
+            }
+          ];
+          vue.inlayHints = {
+            includeInlayEnumMemberValueHints = true;
+            includeInlayFunctionLikeReturnTypeHints = true;
+            includeInlayFunctionParameterTypeHints = true;
+            includeInlayParameterNameHints = "all";
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+            includeInlayPropertyDeclarationTypeHints = true;
+            includeInlayVariableTypeHints = true;
+          };
+        };
       };
       language = [
         {
@@ -143,6 +166,14 @@ in {
         {
           name = "rust";
           language-servers = ["rust-analyzer" "gpt"];
+        }
+        {
+          name = "vue";
+          formatter = {
+            command = "dprint";
+            args = ["fmt" "--stdin" "vue"];
+          };
+          language-servers = ["vuels" "typescript-language-server" "tailwindcss-ls" "gpt"];
         }
       ];
     };
