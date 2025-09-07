@@ -24,7 +24,7 @@ in {
     tailwindcss-language-server
     vue-language-server
     typescript-language-server
-    dprint
+    prettier
   ];
 
   stylix.targets.helix.enable = false;
@@ -125,14 +125,19 @@ in {
           command = "helix-gpt";
           args = ["--handler" "copilot"];
         };
+        vuels.config = {
+          vue.hybridMode = true;
+          typescript.tsdk = "${pkgs.vue-language-server}/lib/language-tools/node_modules/typescript/lib";
+        };
         typescript-language-server.config = {
           plugins = [
             {
               name = "@vue/typescript-plugin";
-              location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server/";
+              location = "${pkgs.vue-language-server}/bin/vue-language-server";
               languages = ["vue"];
             }
           ];
+          tsserver.path = "${pkgs.vue-language-server}/lib/language-tools/node_modules/typescript/lib";
           vue.inlayHints = {
             includeInlayEnumMemberValueHints = true;
             includeInlayFunctionLikeReturnTypeHints = true;
@@ -169,9 +174,10 @@ in {
         }
         {
           name = "vue";
+          auto-format = true;
           formatter = {
-            command = "dprint";
-            args = ["fmt" "--stdin" "vue"];
+            command = "prettier";
+            args = ["--parser" "vue"];
           };
           language-servers = ["vuels" "typescript-language-server" "tailwindcss-ls" "gpt"];
         }
