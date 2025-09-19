@@ -80,10 +80,6 @@
         path = ./templates/flake;
         description = "Basic flake direnv template.";
       };
-      python-pdm = {
-        path = ./templates/python-pdm;
-        description = "Python pdm flake direnv template.";
-      };
     };
   };
 }
