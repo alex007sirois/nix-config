@@ -11,7 +11,7 @@ in {
     ruff
     bash-language-server
     buf
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     gopls
     vscode-langservers-extracted
     taplo
