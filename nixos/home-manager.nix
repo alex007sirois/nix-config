@@ -1,11 +1,11 @@
 {
-  home-manager,
-  home-manager-special-args,
+  inputs,
+  outputs,
   ...
 }: {
-  imports = [home-manager.nixosModules.home-manager];
+  imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
-    extraSpecialArgs = home-manager-special-args;
+    extraSpecialArgs = {inherit inputs outputs;};
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hmbkp";

@@ -27,21 +27,14 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    nix-index-database,
-    disko,
-    stylix,
     helix,
     flake-utils,
     ...
   } @ inputs: let
-    inherit (nixpkgs) lib;
     inherit (self) outputs;
-    home-manager-special-args = {inherit nix-index-database outputs;};
-    nixos-special-args = {inherit inputs stylix disko home-manager home-manager-special-args outputs;};
     buildNixosSystem = machine:
       nixpkgs.lib.nixosSystem {
-        specialArgs = nixos-special-args;
+        specialArgs = {inherit inputs outputs;};
         modules = [machine];
       };
     buildNixosSystems = builtins.mapAttrs (_hostname: machine: buildNixosSystem machine);
@@ -69,7 +62,7 @@
       };
       nixos = import ./nixos;
       home-manager = import ./home-manager;
-      lib = import ./lib {inherit lib;};
+      lib = import ./lib {inherit (nixpkgs) lib;};
 
       nixosConfigurations = buildNixosSystems {
         "laptop-doo-asirois-nix" = ./hosts/doo-laptop;

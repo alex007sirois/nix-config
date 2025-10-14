@@ -1,10 +1,10 @@
 {
   pkgs,
   lib,
-  stylix,
+  inputs,
   ...
 }: {
-  imports = [stylix.nixosModules.stylix];
+  imports = [inputs.stylix.nixosModules.stylix];
 
   stylix = with pkgs; {
     enable = lib.mkDefault true;
