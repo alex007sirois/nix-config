@@ -23,7 +23,8 @@
     };
     difftastic = {
       enable = true;
-      background = "dark";
+      enableAsDifftool = true;
+      options.background = "dark";
     };
     extraConfig = {
       branch.sort = "-committerdate";
@@ -38,11 +39,6 @@
         colormovedws = "allow-indentation-change";
         mnemonicPrefix = "true";
         renames = "copy";
-        tool = "difftastic";
-      };
-      difftool = {
-        prompt = false;
-        difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"'';
       };
       fetch = {
         prune = true;
