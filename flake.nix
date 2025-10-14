@@ -20,6 +20,8 @@
 
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
@@ -30,17 +32,11 @@
     disko,
     stylix,
     helix,
+    flake-utils,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
     inherit (self) outputs;
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-    forAllSystemsPkgs = nixpkgsArgs: func: forAllSystems (system: func (import nixpkgs {inherit system;} // nixpkgsArgs));
     home-manager-special-args = {inherit nix-index-database outputs;};
     nixos-special-args = {inherit inputs stylix disko home-manager home-manager-special-args outputs;};
     buildNixosSystem = machine:
@@ -49,17 +45,10 @@
         modules = [machine];
       };
     buildNixosSystems = builtins.mapAttrs (_hostname: machine: buildNixosSystem machine);
-  in {
-    overlays = import ./overlays {
-      inherit (outputs) lib;
-      inherit helix;
-    };
-    nixos = import ./nixos;
-    home-manager = import ./home-manager;
-    lib = import ./lib {inherit lib;};
-
-    devShells = forAllSystemsPkgs {} (pkgs: {
-      default = pkgs.mkShell {
+    buildFlake = system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           just
           nh
@@ -68,18 +57,29 @@
           nil
         ];
       };
-    });
-
-    nixosConfigurations = buildNixosSystems {
-      "laptop-doo-asirois-nix" = ./hosts/doo-laptop;
-      "home-desktop-asirois-nix" = ./hosts/home-desktop;
     };
+    systemFlake = flake-utils.lib.eachDefaultSystem buildFlake;
+  in
+    systemFlake
+    // {
+      overlays = import ./overlays {
+        inherit (outputs) lib;
+        inherit helix;
+      };
+      nixos = import ./nixos;
+      home-manager = import ./home-manager;
+      lib = import ./lib {inherit lib;};
 
-    templates = {
-      default = {
-        path = ./templates/flake;
-        description = "Basic flake direnv template.";
+      nixosConfigurations = buildNixosSystems {
+        "laptop-doo-asirois-nix" = ./hosts/doo-laptop;
+        "home-desktop-asirois-nix" = ./hosts/home-desktop;
+      };
+
+      templates = {
+        default = {
+          path = ./templates/flake;
+          description = "Basic flake direnv template.";
+        };
       };
     };
-  };
 }
