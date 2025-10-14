@@ -9,7 +9,7 @@
 
   services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
-    open = false;
+    open = true;
     powerManagement.finegrained = true;
 
     prime = {
@@ -33,5 +33,4 @@
   };
 
   hardware.graphics.enable = true;
-  nixpkgs.config.allowUnfree = true;
 }
