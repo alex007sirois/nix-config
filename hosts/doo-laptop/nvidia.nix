@@ -10,24 +10,21 @@
   services.xserver.videoDrivers = ["displaylink" "nvidia"];
   hardware.nvidia = {
     open = true;
-    powerManagement.finegrained = true;
 
     prime = {
-      offload.enable = true;
+      sync.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
   };
 
-  specialisation = {
-    external-display.configuration = {
-      system.nixos.tags = ["external-display"];
-      hardware.nvidia = {
-        powerManagement.finegrained = lib.mkForce false;
-        prime = {
-          offload.enable = lib.mkForce false;
-          sync.enable = true;
-        };
+  specialisation.on-the-go.configuration = {
+    system.nixos.tags = ["on-the-go"];
+    hardware.nvidia = {
+      powerManagement.finegrained = lib.mkForce true;
+      prime = {
+        offload.enable = lib.mkForce true;
+        sync.enable = lib.mkForce false;
       };
     };
   };
