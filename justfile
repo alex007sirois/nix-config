@@ -26,9 +26,3 @@ prepare-deploy-kexec target: (prepare-deploy-ssh target)
 
 deploy target hostname: (prepare-deploy-ssh target)
 	nix run github:nix-community/nixos-anywhere -- --flake '.#{{hostname}}' {{target}}
-
-vscode:
-	aria2c https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/applications/editors/vscode/extensions/update_installed_exts.sh
-	chmod +x update_installed_exts.sh
-	./update_installed_exts.sh
-	rm ./update_installed_exts.sh
