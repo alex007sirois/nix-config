@@ -23,6 +23,11 @@ generate-master-key:
 	@echo "Add public key to nixos/agenix.nix"
 	git add -N master-key.age
 
+edit-secret:
+	agenix edit
+	git add -N **/*.age
+	agenix rekey -a
+
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
 
