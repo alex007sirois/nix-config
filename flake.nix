@@ -36,6 +36,7 @@
     nixpkgs,
     helix,
     flake-utils,
+    agenix-rekey,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -46,16 +47,18 @@
       };
     buildNixosSystems = builtins.mapAttrs (_hostname: machine: buildNixosSystem machine);
     buildFlake = system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${system}.extend agenix-rekey.overlays.default;
     in {
       formatter = pkgs.alejandra;
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [
-          just
-          nh
-          gitlint
-          lefthook
-          nil
+        packages = [
+          pkgs.agenix-rekey
+          pkgs.rage
+          pkgs.just
+          pkgs.nh
+          pkgs.gitlint
+          pkgs.lefthook
+          pkgs.nil
         ];
       };
     };
@@ -74,6 +77,11 @@
       nixosConfigurations = buildNixosSystems {
         "laptop-doo-asirois-nix" = ./hosts/doo-laptop;
         "home-desktop-asirois-nix" = ./hosts/home-desktop;
+      };
+
+      agenix-rekey = agenix-rekey.configure {
+        userFlake = self;
+        nixosConfigurations = self.nixosConfigurations;
       };
 
       templates = {
