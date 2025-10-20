@@ -7,5 +7,8 @@
       localStorageDir = ./. + "/secrets/rekeyed/";
     };
 
+    secrets = {
+      linux-password.rekeyFile = ./secrets/linux-password.age;
+    };
   };
 }
