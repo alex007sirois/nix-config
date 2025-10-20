@@ -9,6 +9,10 @@
 
     secrets = {
       linux-password.rekeyFile = ./secrets/linux-password.age;
+      ssh-config = {
+        owner = "alex";
+        rekeyFile = ./secrets/ssh-config.age;
+      };
     };
   };
 }

@@ -1,8 +1,15 @@
-{outputs, ...}: {
+{
+  config,
+  outputs,
+  ...
+}: {
   home-manager.users.alex = {
     imports = [outputs.home-manager];
 
     programs.git.userEmail = "asirois@dimonoff.com";
+    programs.ssh.includes = [
+      config.age.secrets.ssh-config.path
+    ];
 
     modules = {
       work.enable = true;
