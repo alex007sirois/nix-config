@@ -18,6 +18,11 @@ test:
 switch:
 	nh os boot --ask {{flake}} -- {{determinate-flags}}
 
+generate-master-key:
+	rage-keygen | rage -p -o master-key.age
+	@echo "Add public key to nixos/agenix.nix"
+	git add -N master-key.age
+
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
 
