@@ -9,6 +9,7 @@
 
     secrets = {
       linux-password.rekeyFile = ./secrets/linux-password.age;
+      tactical-agent-token.rekeyFile = ./secrets/tactical-agent-token.age;
       ssh-config = {
         owner = "alex";
         rekeyFile = ./secrets/ssh-config.age;
