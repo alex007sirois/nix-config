@@ -6,7 +6,7 @@
   home-manager.users.alex = {
     imports = [outputs.home-manager];
 
-    programs.git.userEmail = "asirois@dimonoff.com";
+    programs.git.settings.user.email = "asirois@dimonoff.com";
     programs.ssh.includes = [
       config.age.secrets.ssh-config.path
     ];
