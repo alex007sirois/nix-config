@@ -88,7 +88,7 @@
       };
       git = {
         branchLogCmd = "git logs --graph";
-        paging.externalDiffCommand = "difft --color=always";
+        pagers = [{externalDiffCommand = "difft --color=always";}];
         parseEmoji = true;
       };
     };
