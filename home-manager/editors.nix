@@ -1,11 +1,4 @@
-{pkgs, ...}: let
-  helix-gpt = pkgs.writeShellScriptBin "helix-gpt" ''
-    if [ -z "$COPILOT_API_KEY" ]; then
-      export COPILOT_API_KEY="$(pass show Copilot/api_key)"
-    fi
-    exec ${pkgs.helix-gpt}/bin/helix-gpt "$@"
-  '';
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     basedpyright
     ruff
@@ -121,10 +114,6 @@ in {
             };
           };
         };
-        gpt = {
-          command = "helix-gpt";
-          args = ["--handler" "copilot"];
-        };
         vuels.config = {
           vue.hybridMode = true;
           typescript.tsdk = "${pkgs.vue-language-server}/lib/language-tools/node_modules/typescript/lib";
@@ -152,7 +141,7 @@ in {
       language = [
         {
           name = "nix";
-          language-servers = ["nil" "nixd" "gpt"];
+          language-servers = ["nil" "nixd"];
           formatter = {
             command = "alejandra";
             args = ["--quiet" "-"];
@@ -161,16 +150,8 @@ in {
         }
         {
           name = "python";
-          language-servers = ["basedpyright" "ruff" "gpt"];
+          language-servers = ["basedpyright" "ruff"];
           auto-format = true;
-        }
-        {
-          name = "go";
-          language-servers = ["gopls" "golangci-lint-lsp" "gpt"];
-        }
-        {
-          name = "rust";
-          language-servers = ["rust-analyzer" "gpt"];
         }
         {
           name = "vue";
@@ -179,7 +160,7 @@ in {
             command = "prettier";
             args = ["--parser" "vue"];
           };
-          language-servers = ["vuels" "typescript-language-server" "tailwindcss-ls" "gpt"];
+          language-servers = ["vuels" "typescript-language-server" "tailwindcss-ls"];
         }
       ];
     };
