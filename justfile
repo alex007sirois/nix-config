@@ -1,7 +1,6 @@
 default: build
 
 flake := justfile_directory()
-determinate-flags := "--option extra-substituters https://install.determinate.systems --option extra-trusted-public-keys cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
 
 update *inputs:
 	nix flake update {{inputs}}
@@ -10,13 +9,13 @@ update-all:
 	nix flake update
 
 build:
-	nh os build {{flake}} -- {{determinate-flags}}
+	nh os build {{flake}}
 
 test:
-	nh os test {{flake}} -- {{determinate-flags}}
+	nh os test {{flake}}
 
 switch:
-	nh os boot --ask {{flake}} -- {{determinate-flags}}
+	nh os boot --ask {{flake}}
 
 generate-master-key:
 	rage-keygen | rage -p -o master-key.age
