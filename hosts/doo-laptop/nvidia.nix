@@ -22,9 +22,9 @@
     system.nixos.tags = ["on-the-go"];
     services.xserver.videoDrivers = lib.mkForce ["displaylink" "modesetting" "nvidia"];
     hardware.nvidia = {
-      powerManagement.finegrained = lib.mkForce true;
+      powerManagement.enable = true;
       prime = {
-        offload.enable = lib.mkForce true;
+        offload.enable = true;
         sync.enable = lib.mkForce false;
       };
     };
