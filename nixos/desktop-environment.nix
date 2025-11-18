@@ -1,13 +1,6 @@
 {pkgs, ...}: {
   services = {
-    xserver = {
-      enable = true;
-      excludePackages = with pkgs; [xterm];
-    };
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
+    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
   programs = {
