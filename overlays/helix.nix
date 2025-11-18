@@ -1,1 +1,0 @@
-{helix, ...}: helix.overlays.default
