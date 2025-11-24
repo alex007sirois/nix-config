@@ -1,6 +1,9 @@
-default: build
+default: write-flake build
 
 flake := justfile_directory()
+
+write-flake:
+	nix run ".#write-flake"
 
 update *inputs:
 	nix flake update {{inputs}}
