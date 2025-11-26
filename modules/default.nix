@@ -1,8 +1,8 @@
 {config, ...}: {
   flake.modules = {
     homeManager.default.imports = with config.flake.modules.homeManager; [
-      base
       desktop
+      home
       nix
       secrets
       style

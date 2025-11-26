@@ -1,6 +1,17 @@
 {inputs, ...}: {
   flake-file.inputs.home-manager.url = "github:nix-community/home-manager";
   flake.modules = {
+    homeManager.home = {
+      programs.home-manager.enable = true;
+      systemd.user.startServices = "sd-switch";
+      services = {
+        home-manager.autoExpire = {
+          enable = true;
+          frequency = "weekly";
+          store.cleanup = true;
+        };
+      };
+    };
     nixos.home = {
       imports = [
         inputs.home-manager.nixosModules.home-manager
@@ -11,17 +22,6 @@
         extraSpecialArgs.hasGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "hmbkp";
-      };
-    };
-    homeManager.base = {
-      programs.home-manager.enable = true;
-      systemd.user.startServices = "sd-switch";
-      services = {
-        home-manager.autoExpire = {
-          enable = true;
-          frequency = "weekly";
-          store.cleanup = true;
-        };
       };
     };
   };
