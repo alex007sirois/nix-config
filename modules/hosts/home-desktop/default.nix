@@ -4,21 +4,22 @@
   ...
 }: {
   flake = let
+    inherit (config.flake.modules) homeManager nixos;
     hostName = "home-desktop-asirois-nix";
+    modules = with nixos; [
+      default
+      gaming
+    ];
+    homeModules = with homeManager; [
+      default
+      gaming
+      home-desktop
+      torrent
+    ];
   in {
-    nixosConfigurations.${hostName} = lib.nixosSystem {modules = [config.flake.modules.nixos.home-desktop];};
-    modules.nixos.home-desktop = {
-      home-manager.users.alex.imports = with config.flake.modules.homeManager; [
-        default
-        home-desktop
-        torrent
-        gaming
-      ];
-      imports = with config.flake.modules.nixos; [
-        default
-        gaming
-      ];
-
+    nixosConfigurations.${hostName} = lib.nixosSystem {inherit modules;};
+    modules.nixos.home-desktop = {config, ...}: {
+      home-manager.users.${config.user.username}.imports = homeModules;
       networking = {inherit hostName;};
     };
   };

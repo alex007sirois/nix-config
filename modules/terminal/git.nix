@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.terminal = {
-    lib,
+    config,
     pkgs,
     ...
   }: {
@@ -17,10 +17,7 @@
           ".envrc"
         ];
         settings = {
-          user = {
-            name = "Alex Sirois";
-            email = lib.mkDefault "alex007sirois@gmail.com";
-          };
+          user = {inherit (config.user) name email;};
           aliases = {
             aliases = "config --get-regexp ^alias\.";
             branches = "branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:blue)(%(committerdate:short)) [%(authorname)]'";

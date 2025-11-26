@@ -1,23 +1,27 @@
 {
   flake.modules = {
-    homeManager.users = {
+    homeManager.users = {config, ...}: let
+      inherit (config.user) username;
+    in {
       home = {
-        username = "alex";
-        homeDirectory = "/home/alex";
+        inherit username;
+        homeDirectory = "/home/${username}";
       };
     };
-    nixos.users = {config, ...}: {
-      users.users.alex = {
+    nixos.users = {config, ...}: let
+      inherit (config.user) username email name groups;
+    in {
+      user.groups = [
+        "dialout"
+        "wheel"
+      ];
+      users.users.${username} = {
         hashedPasswordFile = config.age.secrets.linux-password.path;
         isNormalUser = true;
-        description = "Alex Sirois";
-        extraGroups = [
-          "dialout"
-          "docker"
-          "networkmanager"
-          "wheel"
-        ];
+        description = name;
+        extraGroups = groups;
       };
+      home-manager.users.${username}.user = {inherit username email name;};
     };
   };
 }
