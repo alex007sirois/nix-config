@@ -9,7 +9,7 @@
       };
     };
     nixos.users = {config, ...}: let
-      inherit (config.user) username email name groups;
+      inherit (config.user) username name groups;
     in {
       user.groups = [
         "dialout"
@@ -21,7 +21,6 @@
         description = name;
         extraGroups = groups;
       };
-      home-manager.users.${username}.user = {inherit username email name;};
     };
   };
 }
