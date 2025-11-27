@@ -6,6 +6,7 @@
       # TODO add nixos module to propagate configs dynamically
       home-manager.users.${username} = {
         user = {inherit username email name;};
+        age.rekey.localStorageDir = ../../secrets/${config.networking.hostName}/home;
       };
     };
   };
