@@ -8,6 +8,7 @@
     hostName = "home-desktop-asirois-nix";
     modules = with nixos; [
       default
+      home-desktop
       gaming
     ];
     homeModules = with homeManager; [
