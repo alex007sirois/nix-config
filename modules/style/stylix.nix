@@ -1,6 +1,9 @@
 {inputs, ...}: {
   flake-file.inputs = {
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   flake.modules = {
     homeManager.style = {

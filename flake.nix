@@ -18,7 +18,10 @@
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/stylix";
+    };
     systems.url = "github:nix-systems/default";
     tactical-rmm.url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
   };
