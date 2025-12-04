@@ -12,9 +12,7 @@
             disable-user-extensions = false;
 
             # `gnome-extensions list` for a list
-            enabled-extensions = [
-              "Bluetooth-Battery-Meter@maniacx.github.com"
-            ];
+            enabled-extensions = [];
           };
         };
       };
