@@ -1,6 +1,7 @@
 {inputs, ...}: {
-  flake-file.inputs = {
-    tactical-rmm.url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
+  flake-file.inputs.tactical-rmm = {
+    url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
   flake.modules.nixos.work = {config, ...}: {
     imports = [inputs.tactical-rmm.nixosModules.default];

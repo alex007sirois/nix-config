@@ -5,17 +5,35 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
-    agenix-rekey.url = "github:oddlama/agenix-rekey";
-    disko.url = "github:nix-community/disko";
+    agenix = {
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+      url = "github:ryantm/agenix";
+    };
+    agenix-rekey = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:oddlama/agenix-rekey";
+    };
+    disko = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+    };
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       inputs.nixpkgs-lib.follows = "nixpkgs-lib";
       url = "github:hercules-ci/flake-parts";
     };
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+    };
     import-tree.url = "github:vic/import-tree";
-    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Mic92/nix-index-database";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
     stylix = {
@@ -23,7 +41,10 @@
       url = "github:nix-community/stylix";
     };
     systems.url = "github:nix-systems/default";
-    tactical-rmm.url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
+    tactical-rmm = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
+    };
   };
 
 }

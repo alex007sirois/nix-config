@@ -1,5 +1,8 @@
 {inputs, ...}: {
-  flake-file.inputs.home-manager.url = "github:nix-community/home-manager";
+  flake-file.inputs.home-manager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   flake.modules = {
     homeManager.home = {
       programs.home-manager.enable = true;
