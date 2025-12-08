@@ -592,11 +592,11 @@
         "rev": "af2c4965dd8403e9d05ecaf367479b5c7973eba3",
         "revCount": 7,
         "type": "git",
-        "url": "ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git"
+        "url": "https://bitbucket.org/amotus/tactical-rmm-nix.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git"
+        "url": "https://bitbucket.org/amotus/tactical-rmm-nix.git"
       }
     },
     "tinted-foot": {

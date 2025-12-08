@@ -43,7 +43,7 @@
     systems.url = "github:nix-systems/default";
     tactical-rmm = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "git+ssh://git@bitbucket.org/amotus/tactical-rmm-nix.git";
+      url = "git+https://bitbucket.org/amotus/tactical-rmm-nix.git";
     };
   };
 
