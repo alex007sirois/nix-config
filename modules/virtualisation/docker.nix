@@ -13,7 +13,10 @@
         "${pkgs.docker}/bin/docker run --privileged --rm tonistiigi/binfmt --install all";
     in {
       user.groups = ["docker"];
-      virtualisation.docker.enable = true;
+      virtualisation.docker = {
+        enable = true;
+        autoPrune.enable = true;
+      };
       environment.systemPackages = [docker-enable-qemu];
     };
   };
