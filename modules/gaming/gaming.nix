@@ -18,6 +18,9 @@
     };
     nixos.gaming = {
       hardware.xone.enable = true;
+      programs = {
+        gamemode.enable = true;
+      };
     };
   };
 }
