@@ -6,7 +6,7 @@
           with cores; [
             bsnes
             dolphin
-            # FIXME parallel-n64
+            parallel-n64
           ];
         retroarch = pkgs.retroarch.withCores retroarchCores;
       in
