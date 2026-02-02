@@ -28,6 +28,7 @@
           enable = true;
           plugins = [pkgs.evolution-ews];
         };
+        geary.enable = true;
       };
       environment.gnome.excludePackages = with pkgs; [
         gnome-terminal
