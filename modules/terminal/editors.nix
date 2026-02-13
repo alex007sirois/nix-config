@@ -13,7 +13,6 @@
       alejandra
       nil
       nixd
-      helix-gpt
 
       tailwindcss-language-server
       vue-language-server
