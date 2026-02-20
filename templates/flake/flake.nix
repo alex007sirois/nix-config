@@ -3,21 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = {
-    nixpkgs,
-    flake-utils,
-    ...
-  }: (flake-utils.lib.eachDefaultSystem (
-    system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      devShells.default = with pkgs;
-        mkShell {
+  outputs = {flake-parts, ...} @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
+      perSystem = {pkgs, ...}: {
+        formatter = pkgs.alejandra;
+        devShell.default = pkgs.mkShell {
           packages = [];
         };
-    }
-  ));
+      };
+    };
 }
