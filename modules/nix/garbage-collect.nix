@@ -3,7 +3,8 @@ let
   KB = 1024 * B;
   MB = 1024 * KB;
   GB = 1024 * MB;
-in {
+in
+{
   flake.modules.nixos.nix = {
     nix = {
       gc = {

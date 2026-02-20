@@ -1,5 +1,5 @@
 {
   flake.modules.nixos.work = {
-    boot.binfmt.emulatedSystems = ["armv7l-linux"];
+    boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
   };
 }

@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   flake.modules = {
     homeManager.default.imports = with config.flake.modules.homeManager; [
       desktop

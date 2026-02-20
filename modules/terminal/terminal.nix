@@ -19,7 +19,10 @@
           };
           terminal.shell = {
             program = "zellij";
-            args = ["--layout" "welcome"];
+            args = [
+              "--layout"
+              "welcome"
+            ];
           };
         };
       };

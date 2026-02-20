@@ -1,10 +1,12 @@
 {
-  flake.modules.homeManager.work = {config, ...}: {
-    age.secrets = {
-      ssh-config.rekeyFile = ./ssh-config.age;
+  flake.modules.homeManager.work =
+    { config, ... }:
+    {
+      age.secrets = {
+        ssh-config.rekeyFile = ./ssh-config.age;
+      };
+      programs.ssh.includes = [
+        config.age.secrets.ssh-config.path
+      ];
     };
-    programs.ssh.includes = [
-      config.age.secrets.ssh-config.path
-    ];
-  };
 }

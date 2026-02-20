@@ -1,4 +1,5 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) mkOption types;
 
   userOptions = {
@@ -15,15 +16,14 @@
       default = "alex007sirois@gmail.com";
     };
   };
-  nixosUserOptions =
-    userOptions
-    // {
-      groups = mkOption {
-        type = types.listOf types.str;
-        default = [];
-      };
+  nixosUserOptions = userOptions // {
+    groups = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
     };
-in {
+  };
+in
+{
   flake.modules = {
     homeManager.users.options.user = userOptions;
     nixos.users.options.user = nixosUserOptions;

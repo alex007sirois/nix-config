@@ -1,11 +1,13 @@
 {
-  flake.modules.homeManager.desktop = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      tangram
-    ];
+  flake.modules.homeManager.desktop =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        tangram
+      ];
 
-    programs.firefox = {
-      enable = true;
+      programs.firefox = {
+        enable = true;
+      };
     };
-  };
 }

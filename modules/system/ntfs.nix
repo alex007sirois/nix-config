@@ -1,5 +1,5 @@
 {
   flake.modules.nixos.system = {
-    boot.supportedFilesystems = ["ntfs"];
+    boot.supportedFilesystems = [ "ntfs" ];
   };
 }
