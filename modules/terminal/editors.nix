@@ -10,9 +10,11 @@
       vscode-langservers-extracted
       taplo
       yaml-language-server
-      alejandra
-      nil
-      nixd
+
+        nixfmt
+        nixfmt-tree
+        nil
+        nixd
 
       tailwindcss-language-server
       vue-language-server
@@ -139,11 +141,6 @@
         language = [
           {
             name = "nix";
-            language-servers = ["nil" "nixd"];
-            formatter = {
-              command = "alejandra";
-              args = ["--quiet" "-"];
-            };
             auto-format = true;
           }
           {
