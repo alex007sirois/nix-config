@@ -117,6 +117,26 @@
         "type": "github"
       }
     },
+    "bitdefender-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772551523,
+        "narHash": "sha256-NB474vbQHE31fRwRPEE7JEEZ/9XVWeIKEZV5AmdE+Pc=",
+        "ref": "refs/heads/main",
+        "rev": "9df1e43c43d2cb7960f01bdfa241ada2873cf422",
+        "revCount": 5,
+        "type": "git",
+        "url": "ssh://git@bitbucket.org/amotus/bitdefender-nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@bitbucket.org/amotus/bitdefender-nix.git"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -469,6 +489,7 @@
       "inputs": {
         "agenix": "agenix",
         "agenix-rekey": "agenix-rekey",
+        "bitdefender-nix": "bitdefender-nix",
         "disko": "disko",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts_2",

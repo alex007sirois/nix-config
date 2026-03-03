@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:oddlama/agenix-rekey";
     };
+    bitdefender-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+ssh://git@bitbucket.org/amotus/bitdefender-nix.git";
+    };
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
