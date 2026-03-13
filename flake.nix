@@ -18,7 +18,7 @@
     };
     bitdefender-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "git+ssh://git@bitbucket.org/amotus/bitdefender-nix.git";
+      url = "git+https://bitbucket.org/amotus/bitdefender-nix.git";
     };
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
