@@ -18,6 +18,7 @@
             ".direnv"
             ".envrc"
           ];
+          signing.format = null;
           settings = {
             user = { inherit (config.user) name email; };
             alias = {
