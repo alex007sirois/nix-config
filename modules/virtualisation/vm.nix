@@ -2,6 +2,11 @@
   flake.modules.nixos.virtualisation =
     { pkgs, ... }:
     {
+      user.groups = [
+        "kvm"
+        "libvirtd"
+      ];
+
       virtualisation.libvirtd.enable = true;
       virtualisation.spiceUSBRedirection.enable = true;
       security.polkit.enable = true;
