@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.home-desktop = {
-    programs.ssh.matchBlocks = {
-      "github.com".identityFile = "~/.ssh/git_key";
+    programs.ssh.settings = {
+      "github.com".IdentityFile = "~/.ssh/git_key";
     };
   };
 }

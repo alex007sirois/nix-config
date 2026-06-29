@@ -10,15 +10,15 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks."*" = {
-          identityFile = "~/.ssh/default_key";
-          identitiesOnly = true;
-          compression = true;
-          hashKnownHosts = true;
-          controlMaster = "auto";
-          controlPath = "~/.ssh/sockets/ssh-mux-%r@%h:%p.socket";
-          controlPersist = "30m";
-          setEnv.TERM = "xterm-256color";
+        settings."*" = {
+          IdentityFile = "~/.ssh/default_key";
+          IdentitiesOnly = true;
+          Compression = true;
+          HashKnownHosts = true;
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/sockets/ssh-mux-%r@%h:%p.socket";
+          ControlPersist = "30m";
+          SetEnv.TERM = "xterm-256color";
         };
       };
     };
