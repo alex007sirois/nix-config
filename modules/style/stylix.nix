@@ -47,9 +47,8 @@
               };
             in
             {
-              # FIXME: uncomment when cantarell build is fixed upstream
-              # serif = cantarell;
-              # sansSerif = cantarell;
+              serif = cantarell;
+              sansSerif = cantarell;
               monospace = nerdfont;
               emoji = nerdfont;
             };
