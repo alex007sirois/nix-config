@@ -9,7 +9,6 @@
       inherit (config.flake.modules) homeManager nixos;
       hostName = "home-desktop-asirois-nix";
       modules = with nixos; [
-        automation
         default
         disk
         home-desktop
