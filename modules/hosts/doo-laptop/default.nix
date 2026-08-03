@@ -1,6 +1,6 @@
 {
   config,
-  lib,
+  inputs,
   ...
 }:
 {
@@ -20,7 +20,7 @@
       ];
     in
     {
-      nixosConfigurations.${hostName} = lib.nixosSystem { inherit modules; };
+      nixosConfigurations.${hostName} = inputs.nixos-raspberrypi.lib.nixosInstaller { inherit modules; };
       modules.nixos.doo-laptop =
         { config, ... }:
         {
