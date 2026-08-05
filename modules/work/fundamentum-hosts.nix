@@ -4,10 +4,12 @@
     let
       inherit (lib.strings) concatStringsSep;
       hosts = [
+        "api-gateway.fundamentum.test"
         "business-unit.fundamentum.test"
         "devices-oauth.fundamentum.test"
         "registration.fundamentum.test"
         "devices-gateway.fundamentum.test"
+        "insight2.fundamentum.test"
         "hub.fundamentum.test"
         "hub-gateway.fundamentum.test"
         "oauth.fundamentum.test"
