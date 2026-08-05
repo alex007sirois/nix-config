@@ -1,5 +1,8 @@
 {
   flake.modules.nixos.doo-laptop = {
-    boot.loader.efi.efiSysMountPoint = "/boot/efi";
+    boot.loader = {
+      systemd-boot.configurationLimit = 6;
+      efi.efiSysMountPoint = "/boot/efi";
+    };
   };
 }
