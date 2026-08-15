@@ -5,6 +5,7 @@
       desktop
       home
       nix
+      programing
       secrets
       style
       terminal
