@@ -8,4 +8,9 @@
         nvd
       ];
     };
+  flake.modules.nixos.nix =
+    { config, ... }:
+    {
+      nix.settings.trusted-users = [ config.user.username ];
+    };
 }
