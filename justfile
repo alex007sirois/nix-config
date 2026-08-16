@@ -39,8 +39,8 @@ prepare-deploy-kexec target: (prepare-deploy-ssh target)
 deploy target hostname: (prepare-deploy-ssh target)
 	nix run github:nix-community/nixos-anywhere -- --chown alex --extra-files extra_files --flake '.#{{hostname}}' {{target}}
 
-build-sd-image host="pi-server":
-	nom build .#nixosConfigurations.{{host}}.config.system.build.sdImage
+build-pi-installer:
+	nom build .#pi4-installer
 
 remote-build host="pi-server" hostname="pi-server":
 	nh os build --hostname {{hostname}} --target-host {{host}} {{flake}}
