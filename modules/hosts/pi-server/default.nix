@@ -19,6 +19,7 @@
       ];
       homeModules = with homeManager; [
         home
+        nix
         pi-server
         secrets
         terminal
