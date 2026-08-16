@@ -130,8 +130,9 @@
         };
       };
     };
-    nixos.terminal = {
+    nixos.terminal = { config, pkgs, ... }: {
       programs.zsh.enable = true;
+      users.users.${config.user.username}.shell = pkgs.zsh;
     };
   };
 }
