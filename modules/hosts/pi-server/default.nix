@@ -27,7 +27,7 @@
       ];
     in
     {
-      nixosConfigurations.${hostName} = inputs.nixos-raspberrypi.lib.nixosInstaller {
+      nixosConfigurations.${hostName} = inputs.nixos-raspberrypi.lib.nixosSystemFull {
         specialArgs = { inherit inputs; };
         inherit modules;
       };
