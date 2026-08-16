@@ -1,7 +1,7 @@
 {
   flake-file = {
     inputs = {
-      nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+      nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/develop";
     };
 
     nixConfig = {

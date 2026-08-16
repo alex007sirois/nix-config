@@ -44,7 +44,7 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/develop";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix = {
       url = "github:nix-community/stylix";
