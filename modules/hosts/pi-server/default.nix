@@ -10,6 +10,7 @@
       hostName = "pi-server";
       modules = with nixos; [
         automation
+        disk
         home
         nix
         pi-server
