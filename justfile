@@ -41,3 +41,12 @@ deploy target hostname: (prepare-deploy-ssh target)
 
 build-sd-image host="pi-server":
 	nom build .#nixosConfigurations.{{host}}.config.system.build.sdImage
+
+remote-build host="pi-server" hostname="pi-server":
+	nh os build --hostname {{hostname}} --target-host {{host}} {{flake}}
+
+remote-test host="pi-server" hostname="pi-server":
+	nh os test --hostname {{hostname}} --target-host {{host}} {{flake}}
+
+remote-switch host="pi-server" hostname="pi-server":
+	nh os boot --ask --hostname {{hostname}} --target-host {{host}} {{flake}}
