@@ -37,7 +37,7 @@ prepare-deploy-kexec target: (prepare-deploy-ssh target)
 	ssh {{target}} "(curl -L https://github.com/nix-community/nixos-images/releases/download/nixos-unstable/nixos-kexec-installer-noninteractive-x86_64-linux.tar.gz | tar -xzf- -C /root) && /root/kexec/run"
 
 deploy target hostname: (prepare-deploy-ssh target)
-	nix run github:nix-community/nixos-anywhere -- --flake '.#{{hostname}}' {{target}}
+	nix run github:nix-community/nixos-anywhere -- --chown alex --extra-files extra_files --flake '.#{{hostname}}' {{target}}
 
 build-sd-image host="pi-server":
 	nom build .#nixosConfigurations.{{host}}.config.system.build.sdImage
