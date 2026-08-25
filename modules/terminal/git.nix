@@ -93,7 +93,12 @@
             };
             git = {
               branchLogCmd = "git logs --graph";
-              pagers = [ { externalDiffCommand = "difft --color=always"; } ];
+              diffRenderers = [
+                {
+                  command = "difft --color=always --context={{diffContext}}";
+                  type = "extDiff";
+                }
+              ];
               parseEmoji = true;
             };
           };
