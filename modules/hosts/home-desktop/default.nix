@@ -13,6 +13,7 @@
         disk
         home-desktop
         gaming
+        torrent
       ];
       homeModules = with homeManager; [
         default
