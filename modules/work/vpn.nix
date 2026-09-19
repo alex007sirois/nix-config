@@ -4,8 +4,16 @@
     {
       # $VARs below are substituted by envsubst from this file.
       age.secrets.vpn-env.rekeyFile = ./vpn-env.age;
-      age.secrets.vpn-office-ca.rekeyFile = ./vpn-office-ca.age;
-      age.secrets.vpn-office-tls-auth.rekeyFile = ./vpn-office-tls-auth.age;
+      age.secrets.vpn-office-ca = {
+        rekeyFile = ./vpn-office-ca.age;
+        owner = config.user.username;
+        mode = "0400";
+      };
+      age.secrets.vpn-office-tls-auth = {
+        rekeyFile = ./vpn-office-tls-auth.age;
+        owner = config.user.username;
+        mode = "0400";
+      };
 
       networking.networkmanager.ensureProfiles = {
         environmentFiles = [ config.age.secrets.vpn-env.path ];
