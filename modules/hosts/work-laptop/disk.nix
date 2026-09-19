@@ -25,6 +25,10 @@
       };
 
       services.fstrim.enable = true;
+      swap = {
+        enable = true;
+        sizeGiB = 16;
+      };
     };
     diskoConfigurations.work-laptop = {
       disko.devices = {
