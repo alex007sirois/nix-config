@@ -33,6 +33,9 @@ switch deploy='' hostname=deploy:
 		{{if deploy != '' { f"--hostname {{hostname}} --target-host {{deploy}}" } else { '' } }} \
 		{{flake}}
 
+clean:
+	nh clean all
+
 generate-master-key:
 	rage-keygen | rage -p -o master-key.age
 	@echo "Add public key to nixos/agenix.nix"
