@@ -53,6 +53,16 @@ deploy target hostname extra-files='' disk-encrypt-key='' key-path='/run/luks-pa
 save-password path:
 	systemd-ask-password > {{path}}
 
+# Enroll unattended TPM unlock on this machine; preserves the recovery passphrase.
+[arg('device', help='LUKS partition to enroll, not its decrypted mapper device')]
+enroll-tpm device='/dev/disk/by-partlabel/system':
+	sudo systemd-cryptenroll \
+		--tpm2-device=auto \
+		--tpm2-pcrs=4+7+9+12 \
+		--tpm2-with-pin=no \
+		--wipe-slot=tpm2 \
+		'{{device}}'
+
 build-pi-installer:
 	nom build .#pi4-installer
 
