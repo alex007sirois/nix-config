@@ -14,6 +14,7 @@
             config.agenix-rekey.agePackage
             just
             nh
+            nixos-anywhere
             gitlint
             lefthook
             nil
