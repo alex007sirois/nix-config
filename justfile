@@ -33,11 +33,25 @@ edit-secret:
 prepare-deploy-ssh target:
 	ssh-copy-id {{target}}
 
-prepare-deploy-kexec target: (prepare-deploy-ssh target)
+prepare-deploy-kexec target:
 	ssh {{target}} "(curl -L https://github.com/nix-community/nixos-images/releases/download/nixos-unstable/nixos-kexec-installer-noninteractive-x86_64-linux.tar.gz | tar -xzf- -C /root) && /root/kexec/run"
 
-deploy target hostname: (prepare-deploy-ssh target)
-	nix run github:nix-community/nixos-anywhere -- --chown alex --extra-files extra_files --flake '.#{{hostname}}' {{target}}
+# Install a host, optionally prompting for the disk-encryption passphrase.
+[confirm('This may erase all configured target disks. Continue?')]
+[arg('target', help='SSH destination, such as nixos@192.0.2.1')]
+[arg('hostname', help='NixOS configuration name in this flake')]
+[arg('extra-files', long, help='Directory to copy into the installed system')]
+[arg('disk-encrypt-key', long, help='Prompt for the LUKS passphrase without echoing it')]
+[arg('key-path', long, help='Installer path matching Disko passwordFile')]
+deploy target hostname extra-files='' disk-encrypt-key='' key-path='/run/luks-passphrase':
+	nixos-anywhere \
+		--flake {{flake}}#{{hostname}} \
+		--target-host {{target}} \
+		{{if extra-files != ''  { f"--extra-files {{extra-files}}" } else { '' } }} \
+		{{if disk-encrypt-key != '' { f"--disk-encryption-keys {{key-path}} {{disk-encrypt-key}}"} else { '' }}}
+
+save-password path:
+	systemd-ask-password > {{path}}
 
 build-pi-installer:
 	nom build .#pi4-installer
