@@ -11,14 +11,27 @@ update *inputs:
 update-all:
 	nix flake update
 
-build:
-	nh os build {{flake}}
+[arg('deploy', long, help='SSH target for a remote build')]
+[arg('hostname', long, help='NixOS configuration name; defaults to deploy target')]
+build deploy='' hostname=deploy:
+	nh os build \
+		{{if deploy != '' { f"--hostname {{hostname}} --target-host {{deploy}}" } else { '' } }} \
+		{{flake}}
 
-test:
-	nh os test {{flake}}
+[arg('deploy', long, help='SSH target for a remote test')]
+[arg('hostname', long, help='NixOS configuration name; defaults to deploy target')]
+test deploy='' hostname=deploy:
+	nh os test \
+		{{if deploy != '' { f"--hostname {{hostname}} --target-host {{deploy}}" } else { '' } }} \
+		{{flake}}
 
-switch:
-	nh os boot --ask {{flake}}
+[arg('deploy', long, help='SSH target for a remote switch')]
+[arg('hostname', long, help='NixOS configuration name; defaults to deploy target')]
+switch deploy='' hostname=deploy:
+	nh os boot \
+		--ask \
+		{{if deploy != '' { f"--hostname {{hostname}} --target-host {{deploy}}" } else { '' } }} \
+		{{flake}}
 
 generate-master-key:
 	rage-keygen | rage -p -o master-key.age
@@ -65,12 +78,3 @@ enroll-tpm device='/dev/disk/by-partlabel/system':
 
 build-pi-installer:
 	nom build .#pi4-installer
-
-remote-build host="pi-server" hostname="pi-server":
-	nh os build --hostname {{hostname}} --target-host {{host}} {{flake}}
-
-remote-test host="pi-server" hostname="pi-server":
-	nh os test --hostname {{hostname}} --target-host {{host}} {{flake}}
-
-remote-switch host="pi-server" hostname="pi-server":
-	nh os boot --ask --hostname {{hostname}} --target-host {{host}} {{flake}}
