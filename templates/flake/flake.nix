@@ -19,7 +19,7 @@
         { pkgs, ... }:
         {
           formatter = pkgs.nixfmt;
-          devShell.default = pkgs.mkShell {
+          devShells.default = pkgs.mkShell {
             packages = [ ];
           };
         };
