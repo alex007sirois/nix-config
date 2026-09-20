@@ -15,6 +15,7 @@ update-all:
 [arg('hostname', long, help='NixOS configuration name; defaults to deploy target')]
 build deploy='' hostname=deploy:
 	nh os build \
+		--accept-flake-config \
 		{{if deploy != '' { f"--hostname {{hostname}} --target-host {{deploy}}" } else { '' } }} \
 		{{flake}}
 
