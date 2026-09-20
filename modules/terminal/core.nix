@@ -13,6 +13,7 @@
           file
           hyperfine
           iputils
+          just
           ouch
           python314
           rnr
