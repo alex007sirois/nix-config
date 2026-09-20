@@ -10,12 +10,6 @@
         inherit identityPaths rekey;
         secrets = {
           linux-password.rekeyFile = ./linux-password.age;
-          wifi-foodie-psk = {
-            rekeyFile = ./wifi-foodie-psk.age;
-            path = "/var/lib/iwd/Foodie.psk";
-            mode = "0600";
-            symlink = false;
-          };
         };
       };
     };
