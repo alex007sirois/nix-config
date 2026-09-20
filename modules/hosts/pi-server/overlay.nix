@@ -1,26 +1,22 @@
 {
-  flake.modules.nixos.pi-server = {
+  flake.modules.nixos.pi-server = { inputs, ... }: {
     nixpkgs.overlays = [
       (
-        _final: prev:
+        final: prev:
         let
-          python313Packages = prev.python313Packages.overrideScope (
-            _pyFinal: pyPrev: {
-              # QEMU crashes while importing the cross-compiled extension modules.
-              matplotlib = pyPrev.matplotlib.overridePythonAttrs {
-                pythonImportsCheck = [ ];
-              };
-              pytest-regressions = pyPrev.pytest-regressions.overridePythonAttrs {
-                doCheck = false;
-              };
-            }
-          );
+          regularPkgs = import inputs.nixos-raspberrypi.inputs.nixpkgs {
+            system = final.stdenv.hostPlatform.system;
+          };
         in
         {
-          inherit python313Packages;
-          # Home Manager's YAML 1.1 serializer uses this alias.
-          remarshal = python313Packages.remarshal;
-          remarshal_0_17 = python313Packages.remarshal;
+          pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+            (_pythonFinal: pythonPrev: {
+              # Avoid rebuilding matplotlib against Pi-specific FFmpeg.
+              matplotlib = pythonPrev.matplotlib.override {
+                ffmpeg-headless = regularPkgs.ffmpeg-headless;
+              };
+            })
+          ];
         }
       )
     ];
