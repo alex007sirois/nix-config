@@ -1,10 +1,10 @@
-{inputs, ...}: {
+{ inputs, ... }: {
   flake-file.inputs.bitdefender-nix = {
     url = "git+https://bitbucket.org/amotus/bitdefender-nix.git";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.modules.nixos.work = {config, ...}: {
-    imports = [inputs.bitdefender-nix.nixosModules.default];
+  flake.modules.nixos.work = { config, ... }: {
+    imports = [ inputs.bitdefender-nix.nixosModules.default ];
 
     age.secrets = {
       bitdefender-credentials.rekeyFile = ./bitdefender-credentials.age;

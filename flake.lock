@@ -140,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772551523,
-        "narHash": "sha256-NB474vbQHE31fRwRPEE7JEEZ/9XVWeIKEZV5AmdE+Pc=",
+        "lastModified": 1790014479,
+        "narHash": "sha256-yVnv7OsXlr4PyKn4lNeukOyEdQg5c3dzCBQTxpLRIuw=",
         "ref": "refs/heads/main",
-        "rev": "9df1e43c43d2cb7960f01bdfa241ada2873cf422",
-        "revCount": 5,
+        "rev": "31e0fd26715841c58ab222d4619f8c067c84761c",
+        "revCount": 10,
         "type": "git",
         "url": "https://bitbucket.org/amotus/bitdefender-nix.git"
       },
