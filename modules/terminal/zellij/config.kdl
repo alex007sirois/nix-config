@@ -612,3 +612,5 @@ scroll_mode_sync false
 web_client {
     font "monospace"
 }
+
+show_startup_tips false
