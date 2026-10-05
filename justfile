@@ -75,7 +75,7 @@ save-password path:
 enroll-tpm device='/dev/disk/by-partlabel/system':
 	sudo systemd-cryptenroll \
 		--tpm2-device=auto \
-		--tpm2-pcrs=4+7+9+12 \
+		--tpm2-pcrs=4+7+12 \
 		--tpm2-with-pin=no \
 		--wipe-slot=tpm2 \
 		'{{device}}'
