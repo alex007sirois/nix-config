@@ -25,10 +25,6 @@
         enable = true;
       };
 
-      programs.nushell = {
-        enable = true;
-      };
-
       programs.atuin = {
         enable = true;
         settings = {
