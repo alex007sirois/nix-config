@@ -4,7 +4,6 @@
     modules.nixos.work-laptop = {
       imports = [ config.flake.diskoConfigurations.work-laptop ];
 
-      boot.initrd.systemd.enable = true;
       boot.initrd.kernelModules = [
         # External USB keyboards
         "usbhid"
