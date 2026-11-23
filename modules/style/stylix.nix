@@ -12,6 +12,8 @@
         qt.platform = "qtct";
         helix.enable = false;
         firefox.profileNames = [ "default" ];
+        # wayprompt removed from upstream
+        wayprompt.enable = false;
       };
     };
     nixos.style =
