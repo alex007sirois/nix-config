@@ -1,15 +1,12 @@
 {
   flake.modules = {
-    # TODO change category
-    nixos.terminal = {
+    nixos.budget = {
       services.actual = {
         enable = true;
         openFirewall = true;
       };
     };
-    # TODO change category
-    homeManager.terminal = { pkgs, ... }: {
-
+    homeManager.budget = { pkgs, ... }: {
       home.packages = with pkgs; [
         actual-client
       ];

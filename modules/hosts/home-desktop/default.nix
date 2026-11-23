@@ -9,6 +9,7 @@
       inherit (config.flake.modules) homeManager nixos;
       hostName = "home-desktop-asirois-nix";
       modules = with nixos; [
+        budget
         default
         disk
         home-desktop
@@ -16,6 +17,7 @@
         torrent
       ];
       homeModules = with homeManager; [
+        budget
         default
         gaming
         home-desktop
